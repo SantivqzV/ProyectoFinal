@@ -1,7 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
+import { Routes, Route } from 'react-router-dom';
+import { getTrabajadores } from './utils';
+//INvestigar Axios
 
 // Registering Syncfusion license key
 
@@ -9,6 +12,8 @@ import './App.css'
 
 const App = () => {
   const activeMenu = true;
+  const [trabajadores, setTrabajadores] = useState([]);
+  useEffect(()=>{setTrabajadores(getTrabajadores()); },[])
 
   return (
     <div>
