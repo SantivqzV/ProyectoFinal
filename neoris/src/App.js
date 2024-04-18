@@ -3,7 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
 
-// Registering Syncfusion license key
+import { HomeAdmin, ManageCourses, UserReviews, HomeUser, Game, Leaderboard, Accounts, Help, Settings } from './pages';
+import { Button, ThemeSettings, Sidebar, Navbar, Footer, Notification, UserProfile, LineChart, Pie, Bar, Map, ChartsHeader, Header } from './components';
 
 import './App.css'
 
@@ -40,10 +41,16 @@ const App = () => {
 
           <div>
             <Routes>
-              <Route path="/" element="Home" />
-              <Route path="/about" element="{<About />}" />
-              <Route path="/contact" element="{<Contact />}" />
-              <Route path="/services" element="{<Services />}" />
+              {/* Dashboard */}
+              <Route path="/" element="home" />
+              <Route path="/home" element="home" />
+              <Route path="/game" element="game" />
+              <Route path="/leaderboard" element="leaderboard" />
+
+              {/* Others */}
+              <Route path="/settings" element="settings" />
+              <Route path="/account" element="account" />
+              <Route path="/help" element="help" />
             </Routes>
           </div>
 

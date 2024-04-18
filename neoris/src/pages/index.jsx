@@ -1,0 +1,9 @@
+export {default as HomeAdmin} from './Admin/Home';
+export {default as ManageCourses} from './Admin/ManageCourses';
+export {default as UserReviews} from './Admin/UserReviews';
+export {default as HomeUser} from './User/Home';
+export {default as Game} from './User/Game';
+export {default as Leaderboard} from './User/Leaderboard';
+export {default as Accounts} from './Accounts';
+export {default as Help} from './Help';
+export {default as Settings} from './Settings';
