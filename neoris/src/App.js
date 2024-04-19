@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -10,6 +10,7 @@ import './App.css'
 
 const App = () => {
   const activeMenu = true;
+  const isAdmin = true;
 
   return (
     <div>
@@ -24,7 +25,7 @@ const App = () => {
           </div>
           {activeMenu ? (
             <div className='w-72 fixed sidebar dark:ng-secondary-dark-bg bg-white '>
-              Sidebar
+              <Sidebar />
             </div>
           ): (
             <div className='w-0 dark:bg-secondary-dark-bg'>
@@ -40,17 +41,18 @@ const App = () => {
           </div>
 
           <div>
+
             <Routes>
               {/* Dashboard */}
-              <Route path="/" element="home" />
+              {/* <Route path="/" element="home" />
               <Route path="/home" element="home" />
               <Route path="/game" element="game" />
-              <Route path="/leaderboard" element="leaderboard" />
+              <Route path="/leaderboard" element="leaderboard" /> */}
 
               {/* Others */}
-              <Route path="/settings" element="settings" />
-              <Route path="/account" element="account" />
-              <Route path="/help" element="help" />
+              <Route path="/settings" element={isAdmin? <Settings/> : <HomeUser/>} />
+              {/* <Route path="/account" element="account" />
+              <Route path="/help" element="help" /> */}
             </Routes>
           </div>
 
