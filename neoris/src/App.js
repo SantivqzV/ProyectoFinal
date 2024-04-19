@@ -1,7 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
+import { Routes, Route } from 'react-router-dom';
+import { getTrabajadores } from './utils';
+//INvestigar Axios
 
 import { HomeAdmin, ManageCourses, UserReviews, HomeUser, Game, Leaderboard, Accounts, Help, Settings } from './pages';
 import { Button, ThemeSettings, Sidebar, Navbar, Footer, Notification, UserProfile, LineChart, Pie, Bar, Map, ChartsHeader, Header } from './components';
@@ -11,6 +14,8 @@ import './App.css'
 const App = () => {
   const activeMenu = true;
   const isAdmin = true;
+  const [trabajadores, setTrabajadores] = useState([]);
+  useEffect(()=>{setTrabajadores(getTrabajadores()); },[])
 
   return (
     <div>

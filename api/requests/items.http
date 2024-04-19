@@ -1,0 +1,51 @@
+@api = http://localhost:5000/items
+
+get {{api}}
+
+###
+get {{api}}m
+
+###
+get {{api}}/4
+
+###
+post {{api}}
+Content-Type: application/json
+
+{
+  "name":"pi",
+  "price": 3.1415
+}
+
+###
+post {{api}}m
+Content-Type: application/json
+
+{
+  "name":"pi",
+  "price": 3.1415
+}
+
+###
+put {{api}}/1
+Content-Type: application/json
+
+{
+  "name":"mice",
+  "price": 99.99
+}
+
+###
+put {{api}}m/65f3849f958cbd080ca03058
+Content-Type: application/json
+
+{
+  "name":"raton",
+  "price": 0.99
+}
+
+###
+delete {{api}}/1
+
+###
+delete {{api}}m/65f3849f958cbd080ca03058
