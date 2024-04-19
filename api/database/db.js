@@ -1,16 +1,17 @@
-import sql from "mssql";
+// db.js
+import { createClient } from '@supabase/supabase-js';
 
-const config = {
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  server: process.env.DB_SERVER,
-  database: process.env.DB_NAME,
+/* const config = {
+  SUPABASE_URL: process.env.SUPABASE_URL,
+  SUPABASE_KEY: process.env.SUPABASE_KEY,
   options: { encrypt: true, trustServerCertificate: true },
-};
+}; */
 
-export async function getConnection() {
-  const pool = await sql.connect(config);
-  return pool;
-}
+const SUPABASE_URL="https://qdqplvmmwtbfexywkbjh.supabase.co";
+const SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFkcXBsdm1td3RiZmV4eXdrYmpoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM0MTMwMzcsImV4cCI6MjAyODk4OTAzN30.LY8eKjawHS-uhn6DYqHFf0-ytJ73EQ1e9s4yfFAc214";
 
-export { sql };
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+
+export { supabase };

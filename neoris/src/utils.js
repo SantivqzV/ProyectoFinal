@@ -1,10 +1,15 @@
-export const getTrabajadores = async ()=> {
+import axios from "axios"
 
-    const result=await fetch("http://localhost:5000/items",{method:"POST", headers: {"content-type":"application/json"},body: JSON.stringify({nombre: "Carmelo", apellido1: "iii"})});
-    
-    const data = await result.json();
-    console.log(data);
-    return data
-};
-
+export const getTrabajadores = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/items");
+  
+      const data = response.data;
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error; // Rethrow the error to handle it in the caller function
+    }
+  };
  
