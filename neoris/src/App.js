@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
-import { Routes, Route } from 'react-router-dom';
 import { getTrabajadores } from './utils';
 //INvestigar Axios
 
@@ -14,8 +13,6 @@ import './App.css'
 const App = () => {
   const activeMenu = true;
   const isAdmin = true;
-  const [trabajadores, setTrabajadores] = useState([]);
-  useEffect(()=>{setTrabajadores(getTrabajadores()); },[])
 
   return (
     <div>
@@ -46,18 +43,17 @@ const App = () => {
           </div>
 
           <div>
-
             <Routes>
               {/* Dashboard */}
-              {/* <Route path="/" element="home" />
-              <Route path="/home" element="home" />
-              <Route path="/game" element="game" />
-              <Route path="/leaderboard" element="leaderboard" /> */}
+              <Route path="/" element={isAdmin ? <HomeUser/> : <HomeAdmin/>} />
+              <Route path="/home" element={isAdmin ? <HomeUser/> : <HomeAdmin/>} />
+              <Route path="/game" element={<Game/>} />
+              <Route path="/leaderboard" element={<Leaderboard/>} />
 
               {/* Others */}
-              <Route path="/settings" element={isAdmin? <Settings/> : <HomeUser/>} />
-              {/* <Route path="/account" element="account" />
-              <Route path="/help" element="help" /> */}
+              <Route path="/settings" element={<Settings/>} />
+              <Route path="/account" element={<Accounts/>} />
+              <Route path="/help" element={<Help/>} />
             </Routes>
           </div>
 
