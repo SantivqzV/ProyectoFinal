@@ -1,39 +1,63 @@
-const { supabase } = require('../supabase'); // Import Supabase client
+import { supabase } from "../database/db.js";
 
 // Register a new user
-const register = async (req, res) => {
+export const register = async (req, res) => {
+try{
 
     const { data, error } = await supabase.auth.signUp({
-        email: 'example@email.com',
-        password: 'example-password',
-    })
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+   if (error) throw error;
+
+    console.log(data);
+    res.status(201).json({ "Success": "User registered successfully" });
+    
+  }
+  catch(error){
+    res.status(500).json({ "Error":error});
+  }
 };
 
 // Login user
-const login = async (req, res) => {
+export const login = async (req, res) => {
   // Implement user login logic here
+  try{
     const { data, error } = await supabase.auth.signInWithPassword({
-        email: 'example@email.com',
-        password: 'example-password',
-    })
+        email: req.body.email,
+        password: req.body.password,
+    });
+
+    if (error) throw error;
+
+    console.log(data);
+    res.status(201).json({ "Success": "User logged in successfully" });
+  }
+  catch(error){
+    res.status(500).json({ error: error.message });
+  }
 };
 
 // Logout user
-const logout = async (req, res) => {
+export const logout = async (req, res) => {
   // Implement user logout logic here
   
-    const { error } = await supabase.auth.signOut()
+    try{
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+
+      console.log(data);
+      res.status(201).json({ "Success": "User logged in successfully" });
+
+    }
+    catch(error){
+      res.status(500).json({ error: error.message });
+    }
 };
 
-const reset_password= async (req, res) => {
+export const reset_password= async (req, res) => {
     
-const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: 'https://example.com/update-password',})
 }
-
-module.exports = {
-  register,
-  login,
-  logout,
-  reset_password
-};
