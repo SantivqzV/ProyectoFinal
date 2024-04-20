@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
-import { Routes, Route } from 'react-router-dom';
 import { getTrabajadores } from './utils';
 //INvestigar Axios
 
