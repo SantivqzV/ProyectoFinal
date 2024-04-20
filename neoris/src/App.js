@@ -8,10 +8,12 @@ import { getTrabajadores } from './utils';
 import { HomeAdmin, ManageCourses, UserReviews, HomeUser, Game, Leaderboard, Accounts, Help, Settings } from './pages';
 import { Button, ThemeSettings, Sidebar, Navbar, Footer, Notification, UserProfile, LineChart, Pie, Bar, Map, ChartsHeader, Header } from './components';
 
+import {useStateContext} from "./contexts/ContextProvider";
+
 import './App.css'
 
 const App = () => {
-  const activeMenu = true;
+  const {activeMenu} = useStateContext();
   const isAdmin = true;
 
   return (
@@ -46,14 +48,14 @@ const App = () => {
             <Routes>
               {/* Dashboard */}
               <Route path="/" element={isAdmin ? <HomeUser/> : <HomeAdmin/>} />
-              <Route path="/home" element={isAdmin ? <HomeUser/> : <HomeAdmin/>} />
-              <Route path="/game" element={<Game/>} />
-              <Route path="/leaderboard" element={<Leaderboard/>} />
+              <Route path="/Home" element={isAdmin ? <HomeUser/> : <HomeAdmin/>} />
+              <Route path="/Game" element={<Game/>} />
+              <Route path="/Leaderboard" element={<Leaderboard/>} />
 
               {/* Others */}
-              <Route path="/settings" element={<Settings/>} />
-              <Route path="/account" element={<Accounts/>} />
-              <Route path="/help" element={<Help/>} />
+              <Route path="/Settings" element={<Settings/>} />
+              <Route path="/Account" element={<Accounts/>} />
+              <Route path="/Help" element={<Help/>} />
             </Routes>
           </div>
 
