@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
-import { getTrabajadores } from './utils';
+import { getCursos } from './utils';
+import axios from 'axios';
+
 //INvestigar Axios
 
 import { HomeAdmin, ManageCourses, UserReviews, HomeUser, Game, Leaderboard, Accounts, Help, Settings } from './pages';
@@ -15,6 +17,20 @@ import './App.css'
 const App = () => {
   const {activeMenu} = useStateContext();
   const isAdmin = true;
+  const [cursos, setCursos] = useState([]);
+
+  useEffect(() => {
+    const fetchCursos = async () => {
+      try {
+        const data = await getCursos();
+        setCursos(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchCursos();
+  }, []);
 
   return (
     <div>
@@ -42,9 +58,33 @@ const App = () => {
             <div className='fixed md:static bg-main-bg darK:bg-main-dark-bg navbar w-full'>
               navbar
             </div>
-          </div>
-
-          <div>
+            <div>
+    {/* Render fetched data here */}
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre del Curso</th>
+          <th>Categoría</th>
+          <th>Duración (Horas)</th>
+          <th>ID del Artículo</th>
+          <th>Puntos</th>
+        </tr>
+      </thead>
+      <tbody>
+        {cursos.map((curso) => (
+          <tr key={curso.id_curso}>
+            <td>{curso.id_curso}</td>
+            <td>{curso.nombre_curso}</td>
+            <td>{curso.categoria}</td>
+            <td>{curso.duracion_horas}</td>
+            <td>{curso.id_articulo}</td>
+            <td>{curso.puntos}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
             <Routes>
               {/* Dashboard */}
               <Route path="/" element={isAdmin ? <HomeUser/> : <HomeAdmin/>} />
