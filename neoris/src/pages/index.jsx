@@ -7,3 +7,5 @@ export {default as Leaderboard} from './User/Leaderboard';
 export {default as Accounts} from './Accounts';
 export {default as Help} from './Help';
 export {default as Settings} from './Settings';
+export {default as LoginPage} from './Login';
+export {default as Dashboard} from './Dashboard';
