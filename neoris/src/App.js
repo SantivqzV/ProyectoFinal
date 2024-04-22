@@ -9,12 +9,12 @@ import './App.css'
 const App = () => {
   const {activeMenu} = useStateContext();
   const isAdmin = true;
-  const isAuth = true;
+  const isAuth = false;
 
   return (
     <div>
       <BrowserRouter>
-        <div className="flex relative dark:bg-main-dark-bg">
+        <div className="dark:bg-main-dark-bg">
           <div>
             <Routes>
               <Route path="Login" element={isAuth? <Navigate to="/" /> : <LoginPage />} />

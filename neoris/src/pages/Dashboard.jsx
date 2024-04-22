@@ -1,6 +1,6 @@
 // DashboardLayout.js
 import React, {useEffect, useState} from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomeAdmin, HomeUser, Game, Leaderboard, Settings, Accounts, Help } from '.';
 
 import { FiSettings } from 'react-icons/fi';
@@ -19,7 +19,7 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
       </div>
       {activeMenu ? (
         <div className='w-72 fixed sidebar dark:ng-secondary-dark-bg bg-white '>
-          <Sidebar />
+          <Sidebar isAdmin = {isAdmin} />
         </div>
       ): (
         <div className='w-0 dark:bg-secondary-dark-bg'>
@@ -36,7 +36,7 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
 
         <div>
         <Routes>
-          <Route path="/" element={isAdmin ? <HomeUser /> : <HomeAdmin />} />
+          <Route path="/" element={<Navigate to="/Home" />} />
           <Route path="/Home" element={isAdmin ? <HomeUser /> : <HomeAdmin />} />
           <Route path="/Game" element={<Game />} />
           <Route path="/Leaderboard" element={<Leaderboard />} />

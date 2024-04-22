@@ -7,6 +7,8 @@ import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HelpIcon from '@mui/icons-material/Help';
 import SettingsIcon from '@mui/icons-material/Settings';
+import SchoolIcon from '@mui/icons-material/School';
+import ReviewsIcon from '@mui/icons-material/Reviews';
 
 export const links = [
   {
@@ -15,14 +17,27 @@ export const links = [
       {
         name: 'Home',
         icon: <HomeIcon />,
+        adminOnly: false,
       },
       {
         name: 'Game',
         icon: <VideogameAssetIcon />,
+        adminOnly: false,
       },
       {
         name: 'Leaderboard',
         icon: <LeaderboardIcon />,
+        adminOnly: false,
+      },
+      {
+        name: 'Manage Courses',
+        icon: <SchoolIcon />,
+        adminOnly: true,
+      },
+      {
+        name: 'User Reviews',
+        icon: <ReviewsIcon />,
+        adminOnly: true,
       },
     ],
   },
@@ -33,14 +48,17 @@ export const links = [
       {
         name: 'Settings',
         icon: <SettingsIcon />,
+        adminOnly: false,
       },
       {
         name: 'Account',
         icon: <AccountCircleIcon />,
+        adminOnly: false,
       },
       {
         name: 'Help',
         icon: <HelpIcon />,
+        adminOnly: false,
       },
     ],
   },

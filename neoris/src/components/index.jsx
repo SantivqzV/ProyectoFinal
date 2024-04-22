@@ -11,3 +11,5 @@ export { default as Bar } from './Charts/Bar';
 export { default as Map } from './Charts/Map';
 export { default as ChartsHeader } from './ChartsHeader';
 export { default as Header } from './Header';
+//export { default as LoginForm} from './Authentication/LoginForm';
+export { default as SignupForm } from './Authentication/SignupForm';
