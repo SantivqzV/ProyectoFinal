@@ -3,13 +3,26 @@ import { supabase } from "../database/db.js";
 // Register a new user
 export const register = async (req, res) => {
 try{
+    
+    const { data, error } = await supabase.auth.signUp(
+      {
+        email: req.body.email,
+        password: req.body.password,
+        options: {
+          data: {
+            nombre: req.body.options.data.nombre,
+            apellido1: req.body.options.data.apellido1,
+            apellido2: req.body.options.data.apellido2,
+            puesto: req.body.options.data.puesto,
+            pais: req.body.options.data.pais,
+            ciudad: req.body.options.data.ciudad,
+            nombre_departamento: req.body.options.data.nombre_departamento,
+          }
+        }
+      }
+    )
 
-    const { data, error } = await supabase.auth.signUp({
-      email: req.body.email,
-      password: req.body.password,
-    });
-
-   if (error) throw error;
+  if (error) throw error;
 
     console.log(data);
     res.status(201).json({ "Success": "User registered successfully" });
@@ -32,7 +45,7 @@ export const login = async (req, res) => {
     if (error) throw error;
 
     console.log(data);
-    res.status(201).json({ "Success": "User logged in successfully" });
+    res.status(201).json({ "Success": data });
   }
   catch(error){
     res.status(500).json({ error: error.message });
