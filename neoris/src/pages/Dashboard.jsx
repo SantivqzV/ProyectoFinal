@@ -7,7 +7,18 @@ import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
 import {Navbar, Sidebar} from '../components';
 
+import { decodeToken } from '../utils';
+
 const Dashboard = ({ isAdmin, activeMenu }) => {
+  const infoUsuario = decodeToken();
+
+  console.log(infoUsuario);
+
+  const firstName = infoUsuario.user_metadata.nombre;
+  const lastName = infoUsuario.user_metadata.apellido1;
+  const email = infoUsuario.email;
+  const position = infoUsuario.user_metadata.puesto;
+  
   return (
     <div className='flex'>
       <div className="fixed right-4 bottom-4" style={{zIndex: '1000'}}>
@@ -31,7 +42,7 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
         `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? ' md:ml-72' : 'flex-2'}`
       }>
         <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
-          <Navbar />
+          <Navbar firstName={firstName} lastName={lastName} email={email} position={position}/>
         </div>
 
         <div>

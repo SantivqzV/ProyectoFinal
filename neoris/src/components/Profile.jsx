@@ -8,7 +8,7 @@ import avatar from '../data/avatar.jpg';
 
 import { logout } from '../auth';
 
-const Profile = () => {
+const Profile = ({firstName, lastName, email, position}) => {
   const {isClicked, initialState, setIsAuth} = useStateContext();
 
   return (
@@ -30,9 +30,9 @@ const Profile = () => {
           alt="user-profile"
         />
         <div>
-          <p className="font-semibold text-xl dark:text-gray-200"> Santiago Vazquez </p>
-          <p className="text-gray-500 text-sm dark:text-gray-400">  Web Dev   </p>
-          <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> info@shop.com </p>
+          <p className="font-semibold text-xl dark:text-gray-200"> {firstName} {lastName}</p>
+          <p className="text-gray-500 text-sm dark:text-gray-400">  {position}   </p>
+          <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> {email} </p>
         </div>
       </div>
       <div>

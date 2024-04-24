@@ -31,7 +31,7 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) => (
   </Tooltip>
 )
 
-function Navbar() {
+function Navbar({firstName, lastName, email, position}) {
   const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize} = useStateContext();
 
   useEffect(() => {
@@ -75,13 +75,13 @@ function Navbar() {
             <img className="rounded-full w-8 h-8" src={avatar} />
             <p>
               <span className='text-gray-400 text-14'>Hi, </span> {' '}
-              <span className='text-gray-400 ml-1 text-14'>Santiago</span>
+              <span className='text-gray-400 ml-1 text-14'>{firstName}</span>
             </p>
             <MdKeyboardArrowDown className='text-gray-400 text-14' />
           </div>
         </Tooltip>
 
-        {isClicked.Profile && <Profile />}
+        {isClicked.Profile && <Profile firstName={firstName} lastName={lastName} email={email} position={position}/>}
         {isClicked.notification && <Notification />}
       </div>
     </div>

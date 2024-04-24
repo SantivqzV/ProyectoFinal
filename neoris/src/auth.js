@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { decodeToken } from './utils';
 
 export async function login(email, password) {
   try {

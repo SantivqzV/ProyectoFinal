@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import {jwtDecode} from 'jwt-decode';
 
 export const getCursos = async () => {
   try {
@@ -11,3 +13,15 @@ export const getCursos = async () => {
     throw error; // Rethrow the error to handle it in the caller function
   }
 };
+
+export function decodeToken(){
+  const token = Cookies.get('token');
+
+  if (!token) {
+    return null;
+  }
+
+  const decoded = jwtDecode(token);
+
+  return decoded;
+}
