@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useState } from 'react';
 import { SignupPage } from '..';
 import { useNavigate } from 'react-router-dom';
 import { useStateContext } from '../../contexts/ContextProvider';
+import { login } from '../../auth';
 
 const LoginPage = () => {
   const navigate = useNavigate();
-
   const {setIsAuth} = useStateContext();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    const success = await login(email, password);
+
+    if (success) {
+      setIsAuth(true);
+      navigate('/dashboard');
+    }
+  }
 
   return(
     <section className='min-h-screen flex items-center justify-center' style={{
@@ -18,12 +32,26 @@ const LoginPage = () => {
           <h2 className='font-bold text-2xl text-black'>
             Login
           </h2>
-          <form action="" className='flex flex-col gap-4'>
-            <input className='p-2 mt-8 rounded-xl border' type='email' name='email' placeholder='Email' />
+          <form action="" className='flex flex-col gap-4' onSubmit={handleLogin}>
+            <input 
+              className='p-2 mt-8 rounded-xl border' 
+              type='email' 
+              name='email'
+              placeholder='Email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+            />
             <div className='relative'>
-              <input className='p-2 rounded-xl border w-full' type='password' name='password' placeholder='Password' />
+              <input 
+                className='p-2 rounded-xl border w-full' 
+                type='password' 
+                name='password' 
+                placeholder='Password' 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-            <button className='bg-black rounded-xl text-white py-2' onClick={() => setIsAuth(true)}>Login</button>
+            <button className='bg-black rounded-xl text-white py-2' type="submit">Login</button>
           </form>
 
           <div className='mt-5 text-xs border-b border-black py-4 text-black'>

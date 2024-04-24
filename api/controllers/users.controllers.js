@@ -36,12 +36,13 @@ try{
 // Login user
 export const login = async (req, res) => {
   // Implement user login logic here
+  console.log("hola");
   try{
     const { data, error } = await supabase.auth.signInWithPassword({
         email: req.body.email,
         password: req.body.password,
     });
-
+    
     if (error) throw error;
 
     console.log(data);
@@ -60,7 +61,6 @@ export const logout = async (req, res) => {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
 
-      console.log(data);
       res.status(201).json({ "Success": "User logged in successfully" });
 
     }
