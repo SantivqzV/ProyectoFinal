@@ -2,7 +2,7 @@ import React, {useState } from 'react';
 import { SignupPage } from '..';
 import { useNavigate } from 'react-router-dom';
 import { useStateContext } from '../../contexts/ContextProvider';
-import { login } from '../../auth';
+import { login} from '../../auth';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -11,15 +11,24 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [error, setError] = useState(null);
+
   const handleLogin = async (event) => {
     event.preventDefault();
 
-    const success = await login(email, password);
+    try{
+      const data = await login(email, password);
 
-    if (success) {
-      setIsAuth(true);
-      navigate('/dashboard');
+      if (data) {
+        setIsAuth(true);
+        navigate('/dashboard');
+      } else {
+        setError('Invalid credentials')
+      }
+    } catch (error) {
+      setError(error.message);
     }
+
   }
 
   return(
@@ -52,9 +61,10 @@ const LoginPage = () => {
               />
             </div>
             <button className='bg-black rounded-xl text-white py-2' type="submit">Login</button>
+            {error && <p className='text-red-500 flex justify-center items-center'>{error}</p>}
           </form>
 
-          <div className='mt-5 text-xs border-b border-black py-4 text-black'>
+          <div className={`text-xs border-b border-black py-4 text-black ${error ? 'mt-0' : 'mt-4'}`}>
             <p className='mt-4'>Forgot your password? <a href='./ResetPassword' className='text-blue-500'>Reset Password</a></p>
           </div>
 

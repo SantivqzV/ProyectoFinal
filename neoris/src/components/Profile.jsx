@@ -6,13 +6,10 @@ import { ProfileData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import avatar from '../data/avatar.jpg';
 
-const Profile = () => {
-  
-  
-  const {isClicked, initialState, setIsAuth} = useStateContext();
+import { logout } from '../auth';
 
-  console.log(isClicked);
-  console.log(initialState);
+const Profile = () => {
+  const {isClicked, initialState, setIsAuth} = useStateContext();
 
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
@@ -60,7 +57,7 @@ const Profile = () => {
         <button 
           style={{ backgroundColor: "white", color:"black", borderRadius:"10px"}} 
           className={`p-3 w-full hover:drop-shadow-xl`}
-          onClick={() => setIsAuth(false)}
+          onClick={logout}
         >
           Logout
         </button>

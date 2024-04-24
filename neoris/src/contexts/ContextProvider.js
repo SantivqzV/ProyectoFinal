@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 const StateContext = createContext();
 
@@ -20,6 +21,16 @@ export const ContextProvider = ({children}) => {
 
     const [screenSize, setScreenSize] = useState(undefined);
 
+    const [token, setToken] = useState(null);
+
+    useEffect(() => {
+        const tokenFromCookie = Cookies.get('token');
+        if(tokenFromCookie){
+            setToken(tokenFromCookie);
+            setIsAuth(true);
+        }
+    })
+
     return (
         <StateContext.Provider 
         value={{
@@ -32,7 +43,8 @@ export const ContextProvider = ({children}) => {
             setScreenSize,
             initialState,
             isAuth,
-            setIsAuth
+            setIsAuth,
+            token
         }}
         >
             {children}
