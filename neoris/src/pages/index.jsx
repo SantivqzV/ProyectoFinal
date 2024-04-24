@@ -7,3 +7,7 @@ export {default as Leaderboard} from './User/Leaderboard';
 export {default as Accounts} from './Accounts';
 export {default as Help} from './Help';
 export {default as Settings} from './Settings';
+export {default as LoginPage} from './Authentication/Login';
+export {default as SignupPage} from './Authentication/Signup';
+export {default as Dashboard} from './Dashboard';
+export {default as ResetPassword} from './Authentication/ResetPassword';

@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
@@ -10,12 +11,15 @@ import axios from 'axios';
 import { HomeAdmin, ManageCourses, UserReviews, HomeUser, Game, Leaderboard, Accounts, Help, Settings } from './pages';
 import { Button, ThemeSettings, Sidebar, Navbar, Footer, Notification, UserProfile, LineChart, Pie, Bar, Map, ChartsHeader, Header } from './components';
 
+
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import {useStateContext} from "./contexts/ContextProvider";
+import { Dashboard, LoginPage, ResetPassword, SignupPage } from './pages'
 
 import './App.css'
 
 const App = () => {
-  const {activeMenu} = useStateContext();
+  const {activeMenu, isAuth} = useStateContext();
   const isAdmin = true;
   const [cursos, setCursos] = useState([]);
 
@@ -85,17 +89,13 @@ const App = () => {
       </tbody>
     </table>
   </div>
+        <div className=" dark:bg-main-dark-bg">
+          <div>
             <Routes>
-              {/* Dashboard */}
-              <Route path="/" element={isAdmin ? <HomeUser/> : <HomeAdmin/>} />
-              <Route path="/Home" element={isAdmin ? <HomeUser/> : <HomeAdmin/>} />
-              <Route path="/Game" element={<Game/>} />
-              <Route path="/Leaderboard" element={<Leaderboard/>} />
-
-              {/* Others */}
-              <Route path="/Settings" element={<Settings/>} />
-              <Route path="/Account" element={<Accounts/>} />
-              <Route path="/Help" element={<Help/>} />
+              <Route path="Login" element={isAuth? <Navigate to="/" /> : <LoginPage />} />
+              <Route path="Signup" element={isAuth? <Navigate to="/" /> : <SignupPage />} />
+              <Route path="ResetPassword" element={isAuth? <Navigate to="/" /> : <ResetPassword />} />
+              <Route path="*" element={isAuth? <Dashboard isAdmin={isAdmin} activeMenu={activeMenu}/> : <Navigate to="login"/>} />
             </Routes>
           </div>
 
