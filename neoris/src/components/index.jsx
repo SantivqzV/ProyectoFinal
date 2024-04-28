@@ -9,7 +9,8 @@ export { default as Profile } from './Profile';
 export { default as Sidebar } from './Sidebar';
 export { default as ThemeSettings } from './ThemeSettings';
 
-export { default as LineChart } from './Charts/LineChart';
+export { default as SimpleLineChart } from './Charts/SimpleLineChart';
 export { default as Pie } from './Charts/Pie';
 export { default as Bar } from './Charts/Bar';
 export { default as Map } from './Charts/Map';
+export { default as CoursesCarrousel } from './Cards/CoursesCarrousel';
