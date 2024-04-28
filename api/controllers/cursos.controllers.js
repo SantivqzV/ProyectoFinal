@@ -3,7 +3,9 @@ import { supabase } from "../database/db.js";
 export const getCursos = async (req, res) => {
   try {
     const { data: cursos, error } = await supabase.from('cursos').select();
-
+    
+    console.log(error)
+  
     res.json(cursos);
     
   } catch (error) {
