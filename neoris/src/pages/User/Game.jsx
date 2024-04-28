@@ -41,8 +41,8 @@ const Game = () => {
           title="Neoris Quest"
           src="https://itch.io/embed-upload/10296442?color=333333"
           allowFullScreen
-          width="928"
-          height="522"
+          width="944"
+          height="531"
           frameBorder="1"
           style={{ display: 'block' }}
         >

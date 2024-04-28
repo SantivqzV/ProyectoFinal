@@ -14,4 +14,4 @@ app.use(express.json());
 app.use(cursosRoutes);
 app.use(userRoutes);
 
-app.listen(5000, console.log("http://localhost:5000"));
+app.listen(5001, console.log("http://localhost:5001"));
