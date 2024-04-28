@@ -1,5 +1,20 @@
 import { supabase } from "../database/db.js";
 
+export const putCertificado = async (req,res) =>{
+  try {
+
+    const { data, error } = await supabase
+    .from('escena_dummy')
+    .update({ "documento": true })
+    .eq('id_trabajador', req.params.id_trabajador)
+    .select()  
+    
+  } catch (error) {
+    // Catch any unexpected errors and respond with a 500 status and the error message
+    res.status(500).json({ error: error.message });
+  }
+}
+
 
 export const getEscena = async (req, res) => {
   try {
