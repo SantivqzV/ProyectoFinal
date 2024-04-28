@@ -1,15 +1,26 @@
 // DashboardLayout.js
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomeAdmin, HomeUser, Game, Leaderboard, Settings, Accounts, Help } from '.';
 
 import { FiSettings } from 'react-icons/fi';
 import Tooltip from '@mui/material/Tooltip';
-import {Sidebar} from '../components';
+import {Navbar, Sidebar} from '../components';
+
+import { decodeToken } from '../utils';
 
 const Dashboard = ({ isAdmin, activeMenu }) => {
+  const infoUsuario = decodeToken();
+
+  console.log(infoUsuario);
+
+  const firstName = infoUsuario.user_metadata.nombre;
+  const lastName = infoUsuario.user_metadata.apellido1;
+  const email = infoUsuario.email;
+  const position = infoUsuario.user_metadata.puesto;
+  
   return (
-    <div>
+    <div className='flex'>
       <div className="fixed right-4 bottom-4" style={{zIndex: '1000'}}>
         <Tooltip title="Settings">
           <button type="button" className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background: 'blue', borderRadius:'50%'}}>
@@ -23,15 +34,15 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
         </div>
       ): (
         <div className='w-0 dark:bg-secondary-dark-bg'>
-          Sidebar
+          
         </div>
       )}
       
       <div className={
         `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? ' md:ml-72' : 'flex-2'}`
       }>
-        <div className='fixed md:static bg-main-bg darK:bg-main-dark-bg navbar w-full'>
-          navbar
+        <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+          <Navbar firstName={firstName} lastName={lastName} email={email} position={position}/>
         </div>
 
         <div>

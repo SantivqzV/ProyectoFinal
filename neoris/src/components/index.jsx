@@ -1,15 +1,15 @@
 export { default as Button } from './Button';
-export { default as ThemeSettings } from './ThemeSettings';
-export { default as Sidebar } from './Sidebar';
-export { default as Navbar } from './Navbar';
+export { default as Button2 } from './Button2';
+export { default as ChartsHeader } from './ChartsHeader';
 export { default as Footer } from './Footer';
-export { default as Notifications } from './Notifications';
-export { default as UserProfile } from './UserProfile';
+export { default as Header } from './Header';
+export { default as Navbar } from './Navbar';
+export { default as Notification } from './Notification';
+export { default as Profile } from './Profile';
+export { default as Sidebar } from './Sidebar';
+export { default as ThemeSettings } from './ThemeSettings';
+
 export { default as LineChart } from './Charts/LineChart';
 export { default as Pie } from './Charts/Pie';
 export { default as Bar } from './Charts/Bar';
 export { default as Map } from './Charts/Map';
-export { default as ChartsHeader } from './ChartsHeader';
-export { default as Header } from './Header';
-//export { default as LoginForm} from './Authentication/LoginForm';
-export { default as SignupForm } from './Authentication/SignupForm';
