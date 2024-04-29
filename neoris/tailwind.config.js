@@ -1,5 +1,11 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+
+    //Tremor
+    './node_modules/@tremor/**/*.{js,ts,jsx,tsx}',
+  
+  ],
   darkMode: 'class',
   theme: {
     fontFamily: {
