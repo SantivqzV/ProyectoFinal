@@ -32,6 +32,7 @@ const Map = () => {
         rotate: [-10, 0, 0],
         scale: 147
       }}
+      className="h-full"
     >
       <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
       <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
