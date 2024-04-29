@@ -1,9 +1,10 @@
 import React from 'react'
+import {Map} from '../../components'
 
 const Home = () => {
   return (
-    <div>HomeAdmin</div>
-  )
+    <Map />
+  );
 }
 
 export default Home
