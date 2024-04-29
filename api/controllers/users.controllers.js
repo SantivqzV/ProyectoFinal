@@ -1,4 +1,7 @@
 import { supabase } from "../database/db.js";
+import jwt from 'jsonwebtoken';
+
+let unity_user_id;
 
 // Register a new user
 export const register = async (req, res) => {
@@ -74,4 +77,25 @@ export const reset_password= async (req, res) => {
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: 'https://example.com/update-password',})
 }
+
+export const getIdFromToken = async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(' ')[1]; // Assumes 'Bearer' scheme
+    const decoded = jwt.decode(token);
+
+    console.log(decoded.sub)
+
+    res.status(200).json({ "id": decoded.sub });
+    unity_user_id = decoded.sub
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getUserId = async(req,res)=>{
+    console.log(unity_user_id)
+
+    res.json({"id": unity_user_id})
+};
+
 
