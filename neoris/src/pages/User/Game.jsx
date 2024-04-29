@@ -1,40 +1,29 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { putCertificado } from '../../certificados';
+import { decodeToken } from '../../utils';
+
 
 const Game = () => {
-  const [files, setFiles] = useState({
-    level1: null,
-    level2: null,
-    level3: null,
-  });
+  const [message, setMessage] = useState(""); // Estado para el mensaje
 
-  const handleFileChange = (event, level) => {
-    const newFiles = { ...files };
-    newFiles[level] = event.target.files[0];
-    setFiles(newFiles);
-  };
 
-  const handleUpload = async (level) => {
+  //const infoUsuario = decodeToken();
+  //const id_trabajador = infoUsuario.sub;
+ const id_trabajador = 2;
+
+
+  const handleButtonClick = async () => {
     try {
-      const formData = new FormData();
-      formData.append('file', files[level]);
-
-      // Aquí debes especificar la URL de tu API para actualizar el nivel
-      await axios.put(`TU_URL_DE_API/${level}`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      console.log(`Archivo del nivel ${level} cargado exitosamente`);
+      const data = await putCertificado(id_trabajador);
+      console.log(data);
     } catch (error) {
-      console.error(`Error al cargar el archivo del nivel ${level}:`, error);
+      console.error("Error updating data:", error);
     }
   };
 
   return (
     <div style={{ textAlign: 'center' }}>
-     <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}>NEORIS QUEST</h1>
+      <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}>NEORIS QUEST</h1>
       <div style={{ display: 'inline-block' }}>
         <iframe
           title="Neoris Quest"
@@ -63,26 +52,24 @@ const Game = () => {
             <tr>
               <td>Nivel 1</td>
               <td>
-                <input type="file" onChange={(e) => handleFileChange(e, 'level1')} />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleUpload('level1')}>" Subir "</button>
+                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={handleButtonClick}>Subir</button>
               </td>
             </tr>
             <tr>
               <td>Nivel 2</td>
               <td>
-                <input type="file" onChange={(e) => handleFileChange(e, 'level2')} />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleUpload('level2')}>" Subir "</button>
+                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleUpload('Nivel 2')}>Subir</button>
               </td>
             </tr>
             <tr>
               <td>Nivel 3</td>
               <td>
-                <input type="file" onChange={(e) => handleFileChange(e, 'level3')} />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleUpload('level3')}>" Subir "</button>
+                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleUpload('Nivel 3')}>Subir</button>
               </td>
             </tr>
           </tbody>
         </table>
+        {message && <p>{message}</p>} {/* Mostrar mensaje si está definido */}
       </div>
     </div>
   );
