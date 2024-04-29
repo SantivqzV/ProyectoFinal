@@ -10,6 +10,7 @@ export async function login(email, password) {
     });
 
     console.log(response.data);
+    console.log(response.data);
 
     const token = response.data.session.access_token;
 
