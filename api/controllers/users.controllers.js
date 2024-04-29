@@ -11,7 +11,7 @@ try{
         options: {
           data: {
             nombre: req.body.options.data.nombre,
-            is_damin: req.body.options.data.is_damin,
+            is_admin: req.body.options.data.is_damin,
             apellido1: req.body.options.data.apellido1,
             apellido2: req.body.options.data.apellido2,
             puesto: req.body.options.data.puesto,
