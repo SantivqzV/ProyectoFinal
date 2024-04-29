@@ -42,7 +42,7 @@ const Game = () => {
           src="https://itch.io/embed-upload/10296442?color=333333"
           allowFullScreen
           width="960"
-          height="660"
+          height="580"
           frameBorder="1"
           style={{ display: 'block' }}
         >
