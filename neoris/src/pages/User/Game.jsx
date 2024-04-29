@@ -4,13 +4,30 @@ import { decodeToken } from '../../utils';
 
 const Game = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
+  const [buttonTextNivel1, setButtonTextNivel1] = useState('Subir'); // Estado para el texto del botón del Nivel 1
+  const [buttonTextNivel2, setButtonTextNivel2] = useState('Subir'); // Estado para el texto del botón del Nivel 2
+  const [buttonTextNivel3, setButtonTextNivel3] = useState('Subir'); // Estado para el texto del botón del Nivel 3
+  const [buttonColorNivel1, setButtonColorNivel1] = useState('white'); // Estado para el color del botón del Nivel 1
+  const [buttonColorNivel2, setButtonColorNivel2] = useState('white'); // Estado para el color del botón del Nivel 2
+  const [buttonColorNivel3, setButtonColorNivel3] = useState('white'); // Estado para el color del botón del Nivel 3
 
   const infoUsuario = decodeToken();
   const id_trabajador = infoUsuario.sub;
-   //const id_trabajador = 2;
 
-  const handleButtonClick = async () => {
+  const handleButtonClick = async (nivel) => {
     try {
+      // Cambiar el texto del botón a "Subido" y el color del texto a azul
+      if (nivel === 1) {
+        setButtonTextNivel1('Subido');
+        setButtonColorNivel1('yellow');
+      } else if (nivel === 2) {
+        setButtonTextNivel2('Subido');
+        setButtonColorNivel2('yellow');
+      } else if (nivel === 3) {
+        setButtonTextNivel3('Subido');
+        setButtonColorNivel3('yellow');
+      }
+
       const data = await putCertificado(id_trabajador);
       console.log(data);
     } catch (error) {
@@ -50,21 +67,21 @@ const Game = () => {
               <td>Nivel 1</td>
               <td>
                 <input type="file" />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={handleButtonClick}>Subir</button>
+                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(1)} style={{ color: buttonColorNivel1 }}>{buttonTextNivel1}</button>
               </td>
             </tr>
             <tr>
               <td>Nivel 2</td>
               <td>
                 <input type="file" />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={handleButtonClick}>Subir</button>
+                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(2)} style={{ color: buttonColorNivel2 }}>{buttonTextNivel2}</button>
               </td>
             </tr>
             <tr>
               <td>Nivel 3</td>
               <td>
                 <input type="file" />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={handleButtonClick}>Subir</button>
+                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(3)} style={{ color: buttonColorNivel3 }}>{buttonTextNivel3}</button>
               </td>
             </tr>
           </tbody>
