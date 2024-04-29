@@ -1,5 +1,5 @@
 import { supabase } from "../database/db.js";
-import { putEscena } from "./escenas.controllers.js";
+import jwt from 'jsonwebtoken';
     
 
 export const adminDashboardInfoGlobal = async (req,res) =>{
@@ -94,7 +94,6 @@ export const adminDashboardInfoPais = async (req,res) =>{
     }
 
 export const userDashboardInfo = async (req, res) =>{
-    res.json({"Datos":"Datos"})
 
     const token = req.headers.authorization.split(' ')[1]; // Assumes 'Bearer' scheme
     const decoded = jwt.decode(token);
@@ -111,12 +110,30 @@ export const userDashboardInfo = async (req, res) =>{
     .select("*")
     .eq("id_usuario", idUsuario);
 
-    userInfoJson["actividadSemanal"]
-
-    // Filters
-    .eq('user', 'Equal to');
+    if(error) throw error;
         
+    userInfoJson["actividadSemanal"] = horas_totales_por_dia;
 
+    let { data: curso_en_progreso, error1 } = await supabase
+    .from('curso_en_progreso_usuario')
+    .select("*")
+    .eq("id_usuario", idUsuario);
+
+    if(error1) throw error1;
+
+    userInfoJson["cursoEnProgreso"] = curso_en_progreso;
+
+    
+    let { data: cursosCompletados, error2 } = await supabase
+    .rpc('total_cursos_completados_usuario', {"id_usuario" : idUsuario});
+
+    console.log(cursosCompletados);
+
+    if(error2) throw error2;
+    
+    userInfoJson["cursosCompletados"] = cursosCompletados;
+
+    res.json(userInfoJson)
 
 }
 
