@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 const Game = () => {
@@ -35,7 +34,7 @@ const Game = () => {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}>NEORIS QUEST</h1>
+     <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}>NEORIS QUEST</h1>
       <div style={{ display: 'inline-block' }}>
         <iframe
           title="Neoris Quest"
