@@ -11,6 +11,7 @@ try{
         options: {
           data: {
             nombre: req.body.options.data.nombre,
+            is_damin: req.body.options.data.is_damin,
             apellido1: req.body.options.data.apellido1,
             apellido2: req.body.options.data.apellido2,
             puesto: req.body.options.data.puesto,
@@ -73,3 +74,4 @@ export const reset_password= async (req, res) => {
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: 'https://example.com/update-password',})
 }
+
