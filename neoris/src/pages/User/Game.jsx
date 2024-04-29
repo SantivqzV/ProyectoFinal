@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { putCertificado } from '../../certificados';
 import { decodeToken } from '../../utils';
 
-
 const Game = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
 
-
   const infoUsuario = decodeToken();
   const id_trabajador = infoUsuario.sub;
- //const id_trabajador = 2;
-
+   //const id_trabajador = 2;
 
   const handleButtonClick = async () => {
     try {
@@ -52,18 +49,21 @@ const Game = () => {
             <tr>
               <td>Nivel 1</td>
               <td>
+                <input type="file" />
                 <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={handleButtonClick}>Subir</button>
               </td>
             </tr>
             <tr>
               <td>Nivel 2</td>
               <td>
+                <input type="file" />
                 <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={handleButtonClick}>Subir</button>
               </td>
             </tr>
             <tr>
               <td>Nivel 3</td>
               <td>
+                <input type="file" />
                 <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={handleButtonClick}>Subir</button>
               </td>
             </tr>
