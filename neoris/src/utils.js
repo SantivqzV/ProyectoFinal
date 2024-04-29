@@ -4,7 +4,7 @@ import {jwtDecode} from 'jwt-decode';
 
 export const getCursos = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/cursos");
+    const response = await axios.get("http://localhost:5001/cursos");
     const data = response.data;
     console.log(data);
     return data;

@@ -22,8 +22,6 @@ try{
       }
     )
 
-  if (error) throw error;
-
     console.log(data);
     res.status(201).json({ "Success": "User registered successfully" });
     
@@ -46,7 +44,8 @@ export const login = async (req, res) => {
     if (error) throw error;
 
     console.log(data);
-    res.status(201).json({ "Success": data });
+    res.status(201).json(data);
+
   }
   catch(error){
     res.status(500).json({ error: error.message });
