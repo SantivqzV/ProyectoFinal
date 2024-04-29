@@ -2,6 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import {jwtDecode} from 'jwt-decode';
 
+
 export const getCursos = async () => {
   try {
     const response = await axios.get("http://localhost:5001/cursos");
@@ -14,6 +15,8 @@ export const getCursos = async () => {
   }
 };
 
+
+
 export function decodeToken(){
   const token = Cookies.get('token');
 
@@ -25,3 +28,4 @@ export function decodeToken(){
 
   return decoded;
 }
+

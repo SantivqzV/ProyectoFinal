@@ -11,7 +11,7 @@ try{
         options: {
           data: {
             nombre: req.body.options.data.nombre,
-            is_damin: req.body.options.data.is_damin,
+            is_admin: req.body.options.data.is_damin,
             apellido1: req.body.options.data.apellido1,
             apellido2: req.body.options.data.apellido2,
             puesto: req.body.options.data.puesto,
@@ -75,3 +75,22 @@ export const reset_password= async (req, res) => {
     redirectTo: 'https://example.com/update-password',})
 }
 
+export const getIdFromToken = async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(' ')[1]; // Assumes 'Bearer' scheme
+    const decoded = jwt.decode(token);
+
+    console.log(decoded.sub)
+
+    res.status(200).json({ "id": decoded.sub });
+    unity_user_id = decoded.sub
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const getUserId = async(req,res)=>{
+    console.log(unity_user_id)
+
+    res.json({"id": unity_user_id})
+};

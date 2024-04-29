@@ -44,3 +44,4 @@ export async function logout() {
     console.error('Logout failed', error.response.data);
   }
 }
+
