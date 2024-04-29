@@ -1,44 +1,36 @@
 import React from 'react'
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import {Map, SimpleLineChart, Pie, CoursesCarrousel} from '../../components';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+
+import {Map} from '../../components'
 
 const Home = () => {
   return (
-    <Container maxWidth="lg">
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <Paper>
-            <Box display="flex" alignItems="center" justifyContent="center" height="100%">
-              <Map />
-            </Box>
+    <Box sx={{ flexGrow: 1, maxWidth:'100vw', overflow: 'hidden' }}>
+      <Grid container spacing={2} className="p-10">
+        <Grid item xs={12} sm={6} md={12} lg={8}>
+          <Paper style={{ height: '40vh', backgroundColor: 'white'}}>
+            <Map style={{maxHeight:'100vh'}} />
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper>
-            <Box display="flex" alignItems="center" justifyContent="center" height="100%">
-              <CoursesCarrousel />
-            </Box>
-          </Paper>
+        <Grid item xs={12} sm={6} md={6} lg={4}>
+          <Paper style={{ height: '40vh', backgroundColor: 'white' }} />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper>
-            <Box display="flex" alignItems="center" justifyContent="center" height="100%">
-              <Pie />
-            </Box>
-          </Paper>
+        <Grid item xs={12} sm={6} md={6} lg={4}>
+          <Paper style={{ height: '40vh', backgroundColor: 'white' }} />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper>
-            <Box display="flex" alignItems="center" justifyContent="center" height="100%">
-              <SimpleLineChart />
-            </Box>
-          </Paper>
+        <Grid item xs={12} sm={6} md={6} lg={4}>
+          <Paper style={{ height: '40vh', backgroundColor: 'white' }} />
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4}>
+          <Paper style={{ height: '40vh', backgroundColor: 'white' }} />
+        </Grid>
+        <Grid item xs={12} sm={6} md={6} lg={4}>
+          <Paper style={{ height: '40vh', backgroundColor: 'white' }} />
         </Grid>
       </Grid>
-    </Container>  
+    </Box>
   );
 };
 
