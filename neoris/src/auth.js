@@ -4,14 +4,14 @@ import { decodeToken } from './utils';
 
 export async function login(email, password) {
   try {
-    const response = await axios.post('http://localhost:5000/login', {
+    const response = await axios.post('http://localhost:5001/login', {
       email,
       password
     });
 
     console.log(response.data);
 
-    const token = response.data.Success.session.access_token;
+    const token = response.data.session.access_token;
 
     console.log(token);
 
@@ -26,7 +26,7 @@ export async function login(email, password) {
 
 export async function logout() {
   try {
-    const response = await axios.post('http://localhost:5000/logout', {
+    const response = await axios.post('http://localhost:5001/logout', {
       token: Cookies.get('token')
     });
 
