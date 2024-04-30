@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {FlexBetween, Header, Map, CourseCards, Pie, SimpleLineChart} from "../../components";
 import {Box, Button } from "@mui/material";
 
@@ -9,6 +9,8 @@ import DialogContent from '@mui/material/DialogContent';
 import PublicIcon from '@mui/icons-material/Public';
 
 import Grid from "@mui/material/Grid";
+
+import { getAdminDashboard } from "../../utils";
 
 const Home = () => {
 
@@ -21,6 +23,12 @@ const Home = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    getAdminDashboard();
+  }, []);
+
+
 
   return (
     <Box m="1.5rem 2.5rem">
