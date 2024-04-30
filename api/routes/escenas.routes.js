@@ -1,17 +1,20 @@
 import { Router } from "express";
 import {
-  getEscena,
+  getProgreso,
   putEscena,
-  putCertificado
+  putCertificado,
+  putCurso
 } from "../controllers/escenas.controllers.js";
 
 const router = Router();
 
-router.get("/escena/:id_trabajador", getEscena);
+router.get("/getProgreso/:idUsuario", getProgreso);
 
-router.put("/put_escena/:id_trabajador/:escena", putEscena);
+router.put("/putEscena/:idUsuario/:idEscena", putEscena);
 
-router.put("/put_certificado/:id_trabajador", putCertificado);
+router.put("/putCertificado/:idUsuario", putCertificado);
+
+router.put("/putCurso/:idUsuario/:idCurso", putCurso);
 
 
 export default router;
