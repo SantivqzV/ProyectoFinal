@@ -10,13 +10,23 @@ import {
 } from "react-simple-maps";
 
 import {mapa} from '../../data/dummy';
+import { getCountryFilter } from "../../utils";
 
+///////////////////////////////////////////////////////////////
 const geoUrl = "/features.json";
 
-const colorScale = scaleLinear()
-  .domain([0, 20000])
-  .range(["#ffedea", "#ff5233"]);
+const colorScale = scaleLinear().domain([0, 20000]).range(["#ffedea", "#ff5233"]);
 
+const handleClick = async (nombre) => {
+  try{
+    const countryData = await getCountryFilter(nombre);
+    console.log(nombre);
+    console.log(countryData);  
+  } catch (error){
+    console.error(error);
+  }
+
+};
 const Map = () => {
   const [data, setData] = useState([]);
 
@@ -67,6 +77,7 @@ const Map = () => {
                         outline: "none"
                       }
                     }}
+                    onClick={() => handleClick(geo.properties.name)}
                   />
                 </Tooltip>
               );

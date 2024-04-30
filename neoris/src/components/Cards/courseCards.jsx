@@ -25,19 +25,33 @@ const data = [
   },
 ];
 
-export default function CourseCards() {
+/*
+    { cantidad_nuevos_usuarios: 3, pais: 'México' },
+    { cantidad_nuevos_usuarios: 1, pais: 'Argentina' },
+    { cantidad_nuevos_usuarios: 1, pais: 'Mexico' },
+    { cantidad_nuevos_usuarios: 1, pais: 'Francia' },
+    { cantidad_nuevos_usuarios: 3, pais: 'España' },
+    { cantidad_nuevos_usuarios: 1, pais: 'Estados Unidos' }
+*/
+
+const CourseCards = ({data1}) => {
+  const total = data1.reduce((acc, cur) => acc + cur.cantidad_nuevos_usuarios, 0);
+
+  const data = [
+    {label: "Global", cantidad_nuevos_usuarios: total}
+  ];
   return (
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-10">
         {data.map((item) => (
-          <Card key={item.name} className='p-3'>
+          <Card key={item.label} className='p-3'>
             <p className="text-base leading-5 font-medium text-gray-500">
-              {item.name}
+              {item.label}
             </p>
             <div className="mt-2 flex items-baseline space-x-2.5">
               <p className="text-2xl leading-9 font-semibold text-gray-900">
-                {item.stat}
+                {item.cantidad_nuevos_usuarios}
               </p>
-              <span
+              {/* <span
                 className={classNames(
                   item.changeType === 'positive'
                     ? 'text-emerald-700 dark:text-emerald-500'
@@ -46,7 +60,7 @@ export default function CourseCards() {
                 )}
               >
                 {item.change}
-              </span>
+              </span> */}
             </div>
           </Card>
         ))}
@@ -54,3 +68,5 @@ export default function CourseCards() {
 
   );
 }
+
+export default CourseCards
