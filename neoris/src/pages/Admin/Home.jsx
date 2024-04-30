@@ -10,6 +10,7 @@ import PublicIcon from '@mui/icons-material/Public';
 import { getAdminDashboard } from "../../utils";
 
 import { useStateContext } from "../../contexts/ContextProvider";
+import CourseCardsRender from "../../components/Cards/CourseCards";
 
 const Home = () => {
 
@@ -72,7 +73,7 @@ const Home = () => {
           </Dialog>
         </Box>
       </FlexBetween>
-      <CourseCards 
+      <CourseCardsRender 
         totalUsuarios={totalUsuarios}
         labelUsuarios={labelUsuarios}
         labelCurso={labelCurso}
