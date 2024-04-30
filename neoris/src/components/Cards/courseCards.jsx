@@ -68,6 +68,18 @@ export default function CourseCardsRender({totalUsuarios, labelUsuarios, labelCu
     return () => clearTimeout(timer); // Clear the timer if the component is unmounted
   }, [totalUsuarios, labelUsuarios, labelCurso, totalNuevosUsuarios, labelNuevosUsuarios, nombreCursoMasPopular]);
 
+  if(loading){
+    return (
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-10">
+        {Array(3)
+          .fill()
+          .map((_, index) => (
+            <Skeleton key={index} variant="rectangular" width={210} height={118} />
+          ))}
+      </div>
+    );
+  }
+
   return (
     <CourseCards cards={cards} />
   );
