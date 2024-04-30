@@ -18,4 +18,4 @@ export { default as Bar } from './Charts/Bar';
 export { default as Map } from './Charts/Map';
 
 export { default as CoursesCarrousel } from './Cards/CoursesCarrousel';
-export { default as CourseCards} from './Cards/CourseCards';
+export { default as CourseCardsRender} from './Cards/CourseCardsRender'; 

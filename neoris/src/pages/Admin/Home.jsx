@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {FlexBetween, Header, Map, CourseCards, Pie, SimpleLineChart} from "../../components";
+import {FlexBetween, CourseCardsRender, Header, Map, Pie, SimpleLineChart} from "../../components";
 import {Box, Button } from "@mui/material";
 
 import Dialog from '@mui/material/Dialog';
@@ -10,7 +10,6 @@ import PublicIcon from '@mui/icons-material/Public';
 import { getAdminDashboard } from "../../utils";
 
 import { useStateContext } from "../../contexts/ContextProvider";
-import CourseCardsRender from "../../components/Cards/CourseCards";
 
 const Home = () => {
 

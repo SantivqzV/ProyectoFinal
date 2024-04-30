@@ -32,7 +32,7 @@ const CourseCards = ({cards}) => {
   );
 };
 
-export default function CourseCardsRender({totalUsuarios, labelUsuarios, labelCurso, totalNuevosUsuarios, labelNuevosUsuarios, nombreCursoMasPopular}){
+const CourseCardsRender = ({totalUsuarios, labelUsuarios, labelCurso, totalNuevosUsuarios, labelNuevosUsuarios, nombreCursoMasPopular}) =>{
   const [loading, setLoading] = useState(true); // Set initial state to true
   const [cards, setCards] = useState([]);
 
@@ -84,3 +84,5 @@ export default function CourseCardsRender({totalUsuarios, labelUsuarios, labelCu
     <CourseCards cards={cards} />
   );
 };
+
+export default CourseCardsRender;

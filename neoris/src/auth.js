@@ -1,8 +1,5 @@
 import axios from 'axios';
-
-
 import Cookies from 'js-cookie';
-import { decodeToken } from './utils';
 
 export async function login(email, password) {
   try {
@@ -43,6 +40,7 @@ export async function logout() {
     window.location.reload();
 
   } catch (error) {
+    console.log(error);
     console.error('Logout failed', error.response.data);
   }
 }
