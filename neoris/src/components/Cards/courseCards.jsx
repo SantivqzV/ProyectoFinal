@@ -1,5 +1,6 @@
 import Card from '@mui/material/Card';
 import React, { useEffect, useState } from 'react';
+import Skeleton from '@mui/material/Skeleton';
 
 const CourseCards = ({totalUsuarios, labelUsuarios, labelCurso, totalNuevosUsuarios, labelNuevosUsuarios, nombreCursoMasPopular}) => {
   const [loading, setLoading] = useState(true);
@@ -26,13 +27,19 @@ const CourseCards = ({totalUsuarios, labelUsuarios, labelCurso, totalNuevosUsuar
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 0);
+    }, 3000);
 
     return () => clearTimeout(timer); // Clear the timer if the component is unmounted
   }, [totalUsuarios, labelUsuarios, labelCurso, totalNuevosUsuarios, labelNuevosUsuarios, nombreCursoMasPopular]);
 
   if (loading) {
-    return <div>Loading...</div>; // Render a loading message while the dataTable is being set
+    return (
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-10">
+        {Array(3).fill().map((_, index) => (
+          <Skeleton key={index} variant="rectangular" width={210} height={118} />
+        ))}
+      </div>
+    );
   }
 
   return (
