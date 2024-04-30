@@ -34,33 +34,28 @@ const data = [
     { cantidad_nuevos_usuarios: 1, pais: 'Estados Unidos' }
 */
 
-const CourseCards = ({data1}) => {
-  const total = data1.reduce((acc, cur) => acc + cur.cantidad_nuevos_usuarios, 0);
+const CourseCards = ({data}) => {
+  console.log(data);
+  const nuevosUsuarios = data?.nuevos_usuarios;
+  const totalNuevosUsuarios = nuevosUsuarios.reduce((acc, cur) => acc + cur.cantidad_nuevos_usuarios, 0);
+  const label = nuevosUsuarios[0].pais ? nuevosUsuarios[0].pais : 'Global';
 
-  const data = [
-    {label: "Global", cantidad_nuevos_usuarios: total}
+  const dataTable = [
+    {
+      label: label, cantidad_nuevos_usuarios: totalNuevosUsuarios
+    }
   ];
   return (
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-10">
-        {data.map((item) => (
+        {dataTable.map((item) => (
           <Card key={item.label} className='p-3'>
-            <p className="text-base leading-5 font-medium text-gray-500">
-              {item.label}
+            <p className="text-base leading-5 font-medium text-gray-500" style={{textTransform: "capitalize"}}>
+              Usuarios {item.label}
             </p>
             <div className="mt-2 flex items-baseline space-x-2.5">
               <p className="text-2xl leading-9 font-semibold text-gray-900">
                 {item.cantidad_nuevos_usuarios}
               </p>
-              {/* <span
-                className={classNames(
-                  item.changeType === 'positive'
-                    ? 'text-emerald-700 dark:text-emerald-500'
-                    : 'text-red-700 dark:text-red-500',
-                  'text-base leading-5 font-medium',
-                )}
-              >
-                {item.change}
-              </span> */}
             </div>
           </Card>
         ))}

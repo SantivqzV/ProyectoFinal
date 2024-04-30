@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
+import { getAdminDashboard } from '../utils';
+import { decodeToken } from '../utils';
 
 const StateContext = createContext();
 
@@ -10,26 +12,53 @@ const initialState = {
 
 export const ContextProvider = ({children}) => {
     const [activeMenu, setActiveMenu] = useState(true);
-
     const [isClicked, setIsClicked] = useState(initialState);
-
     const [isAuth, setIsAuth] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [screenSize, setScreenSize] = useState(undefined);
+    const [token, setToken] = useState(null);
+    const [filter, setFilter] = useState('global');
+    const [data, setData] = useState(null);
+    const [isAdmin, setIsAdmin] = useState(false);
+    
 
     const handleClick = (clicked) => {
         setIsClicked({...initialState, [clicked]: true});
     }
 
-    const [screenSize, setScreenSize] = useState(undefined);
-
-    const [token, setToken] = useState(null);
+    
 
     useEffect(() => {
         const tokenFromCookie = Cookies.get('token');
+        const tokenTemp = decodeToken(tokenFromCookie);
         if(tokenFromCookie){
             setToken(tokenFromCookie);
             setIsAuth(true);
+            if(tokenTemp.user_metadata.is_admin == 1){
+                setIsAdmin(true);
+            }
+            else{
+                setIsAdmin(false);
+            }
         }
     })
+
+    useEffect(() => {
+        console.log('useEffect');
+        
+        const fetchData = async () => {
+          try {
+            const DashboardData = await getAdminDashboard(filter);
+            setData(DashboardData);
+            setLoading(false);
+            console.log(DashboardData);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+        
+        fetchData();
+      }, [filter]);
 
     return (
         <StateContext.Provider 
@@ -44,7 +73,11 @@ export const ContextProvider = ({children}) => {
             initialState,
             isAuth,
             setIsAuth,
-            token
+            token,
+            data,
+            loading,
+            setFilter,
+            isAdmin
         }}
         >
             {children}

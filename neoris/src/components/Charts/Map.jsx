@@ -11,30 +11,27 @@ import {
 
 import {mapa} from '../../data/dummy';
 import { getCountryFilter } from "../../utils";
+import { useStateContext} from "../../contexts/ContextProvider";
 
 ///////////////////////////////////////////////////////////////
 const geoUrl = "/features.json";
-
 const colorScale = scaleLinear().domain([0, 20000]).range(["#ffedea", "#ff5233"]);
 
-const handleClick = async (nombre) => {
-  try{
-    const countryData = await getCountryFilter(nombre);
-    console.log(nombre);
-    console.log(countryData);  
-  } catch (error){
-    console.error(error);
-  }
 
-};
+
 const Map = () => {
   const [data, setData] = useState([]);
-
+  const {setFilter} = useStateContext();
   const [tooltipContent, setTooltipContent] = useState("");
 
   useEffect(() => {
     setData(mapa);
   }, []);
+
+  const handleClick = async (nombre) => {
+    console.log(nombre);
+    setFilter(nombre);
+  };
 
   return (
     <ComposableMap

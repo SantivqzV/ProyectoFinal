@@ -7,8 +7,7 @@ import { Dashboard, LoginPage, ResetPassword, SignupPage } from './pages'
 import './App.css'
 
 const App = () => {
-  const {activeMenu, isAuth, token} = useStateContext();
-  const isAdmin = true;
+  const {activeMenu, isAuth, isAdmin} = useStateContext();
 
   return (
     <div>

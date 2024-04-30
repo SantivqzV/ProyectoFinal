@@ -12,8 +12,6 @@ import { decodeToken } from '../utils';
 const Dashboard = ({ isAdmin, activeMenu }) => {
   const infoUsuario = decodeToken();
 
-  console.log(infoUsuario.sub);
-
   const firstName = infoUsuario.user_metadata.nombre;
   const lastName = infoUsuario.user_metadata.apellido1;
   const email = infoUsuario.email;
@@ -48,7 +46,7 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
         <div>
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
-          <Route path="/Home" element={isAdmin ? <HomeUser /> : <HomeAdmin />} />
+          <Route path="/Home" element={isAdmin ? <HomeAdmin /> : <HomeUser />} />
           <Route path="/Game" element={<Game />} />
           <Route path="/Leaderboard" element={<Leaderboard />} />
           <Route path="/Settings" element={<Settings />} />
