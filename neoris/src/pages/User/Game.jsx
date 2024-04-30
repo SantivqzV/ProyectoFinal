@@ -41,10 +41,10 @@ const Game = () => {
       <div style={{ display: 'inline-block' }}>
         <iframe
           title="Neoris Quest"
-          src="https://itch.io/embed-upload/10296442?color=333333"
+          src="https://itch.io/embed-upload/10307091?color=333333"
           allowFullScreen
-          width="960"
-          height="580"
+          width="975"
+          height="670"
           frameBorder="1"
           style={{ display: 'block' }}
         >
