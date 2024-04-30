@@ -13,78 +13,107 @@ export const adminDashboardInfo = async (req,res) =>{
         let { data: cursos_mas_populares, error_1 } = await supabase
         .from('cursos_mas_populares')
         .select('*');
-
         if (error_1) throw error_1;
 
-        adminInfoJson["cursos_populares"] = cursos_mas_populares
-        
+
         let { data: nuevos_usuarios_semana, error_2 } = await supabase
         .from('nuevos_usuarios_semana')
         .select('*');
-
         if (error_2) throw error_2;
 
-        adminInfoJson["nuevos_usuarios"] = nuevos_usuarios_semana
 
         let { data: top_usuarios_puntos_semana, error_3 } = await supabase
         .from('top_usuarios_puntos_semana')
         .select('*');
-
         if (error_3) throw error_3;
-
-        adminInfoJson["top_usuarios_semana"] = top_usuarios_puntos_semana
         
+
         let { data: uso_aplicacion_por_hora_dia, error_4 } = await supabase
         .from('uso_aplicacion_por_hora_dia')
         .select('*')
-
         if (error_4) throw error_4;
 
-        adminInfoJson["uso_aplicacion_por_hora_dia"] = uso_aplicacion_por_hora_dia
+        
+        let { data: detalle_curso_mas_popular, error5 } = await supabase
+        .from('detalle_cursos_mas_populares')
+        .select('*')
+        .range(0, 0);
+        if (error5) throw error5;
+
+        
+        let { data: total_usuarios, error6 } = await supabase
+        .from('total_usuarios')
+        .select('*');
+        if(error6) throw error6;
+        
+
+        adminInfoJson = {"cursos_populares":cursos_mas_populares,
+        "nuevos_usuarios":nuevos_usuarios_semana,
+        "top_usuarios_semana": top_usuarios_puntos_semana,
+        "uso_aplicacion_por_hora_dia": uso_aplicacion_por_hora_dia,
+        "curso_mas_popular": detalle_curso_mas_popular,
+        "total_usuarios":total_usuarios
+        }
 
         res.json(adminInfoJson)
 
     }
     else{
-    
+    try{
         let { data: cursos_mas_populares, error_1 } = await supabase
         .from('cursos_mas_populares_pais')
         .select('*')
         .eq("pais", pais);
-    
         if (error_1) throw error_1;
-    
-        adminInfoJson["cursos_populares"] = cursos_mas_populares
         
         let { data: nuevos_usuarios_semana, error_2 } = await supabase
         .from('nuevos_usuarios_semana_por_pais')
         .select('*')
         .eq("pais", pais);
-        
-    
         if (error_2) throw error_2;
-    
-        adminInfoJson["nuevos_usuarios"] = nuevos_usuarios_semana
+
     
         let { data: top_usuarios_puntos_semana, error_3 } = await supabase
         .from('top_usuarios_puntos_semana_pais')
         .select('*')
         .eq("pais", pais);
-    
         if (error_3) throw error_3;
-    
-        adminInfoJson["top_usuarios_semana"] = top_usuarios_puntos_semana
         
+
         let { data: uso_aplicacion_por_hora_dia, error_4 } = await supabase
         .from('uso_aplicacion_por_hora_dia_pais')
         .select('*')
         .eq("pais", pais);
-    
         if (error_4) throw error_4;
-    
-        adminInfoJson["uso_aplicacion_por_hora_dia"] = uso_aplicacion_por_hora_dia
+
+        
+        let { data: detalle_curso_mas_popular, error5 } = await supabase
+        .from('detalle_cursos_mas_populares_pais')
+        .select('*')
+        .eq("pais", pais)
+        .range(0, 0);
+        if (error5) throw error5;
+        
+        let { data: total_usuarios, error6 } = await supabase
+        .from('total_usuarios_pais')
+        .select('*')
+        .eq("pais", pais);
+        if(error6) throw error6;
+
+        adminInfoJson = {"cursos_populares":cursos_mas_populares,
+        "nuevos_usuarios":nuevos_usuarios_semana,
+        "top_usuarios_semana": top_usuarios_puntos_semana,
+        "uso_aplicacion_por_hora_dia": uso_aplicacion_por_hora_dia,
+        "curso_mas_popular": detalle_curso_mas_popular,
+        "total_usuarios":total_usuarios
+        }
     
         res.json(adminInfoJson)
+    }
+        catch(error){
+            console.error(error);
+            res.status(500).json({ error: error.toString()});
+        }
     }
 }
 
