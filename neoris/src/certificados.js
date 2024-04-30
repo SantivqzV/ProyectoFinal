@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-
-
-
 export const putCertificado = async (id_trabajador) => {
 try {
     const response = await axios.put(`http://localhost:5001/putCertificado/${id_trabajador}`);
