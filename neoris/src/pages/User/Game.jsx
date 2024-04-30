@@ -19,13 +19,13 @@ const Game = () => {
       // Cambiar el texto del botón a "Subido" y el color del texto a azul
       if (nivel === 1) {
         setButtonTextNivel1('Subido');
-        setButtonColorNivel1('yellow');
+        setButtonColorNivel1('green');
       } else if (nivel === 2) {
         setButtonTextNivel2('Subido');
-        setButtonColorNivel2('yellow');
+        setButtonColorNivel2('green');
       } else if (nivel === 3) {
         setButtonTextNivel3('Subido');
-        setButtonColorNivel3('yellow');
+        setButtonColorNivel3('green');
       }
 
       const data = await putCertificado(id_trabajador);
@@ -48,48 +48,33 @@ const Game = () => {
           frameBorder="1"
           style={{ display: 'block' }}
         >
-          <p>Your browser does not support iframes.</p>
-          <a href="https://aylenaf.itch.io/parallax">Play Neoris Quest on itch.io</a>
         </iframe>
       </div>
 
-      <div style={{ marginTop: '50px' }}>
-        <h2>Subir Certificaciones</h2>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Nivel</th>
-              <th>Subir Archivo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Nivel 1</td>
-              <td>
-                <input type="file" />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(1)} style={{ color: buttonColorNivel1 }}>{buttonTextNivel1}</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Nivel 2</td>
-              <td>
-                <input type="file" />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(2)} style={{ color: buttonColorNivel2 }}>{buttonTextNivel2}</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Nivel 3</td>
-              <td>
-                <input type="file" />
-                <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(3)} style={{ color: buttonColorNivel3 }}>{buttonTextNivel3}</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      
+      <div style={{ marginTop: '80px', textAlign: 'left', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '1200px', margin: '0 auto' }}>
+        <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Subir Certificaciones</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ flex: '1', marginRight: '20px' }}>
+            <h3>Nivel 1</h3>
+            <input type="file" style={{ marginBottom: '5px' }} />
+            <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(1)} style={{ color: buttonColorNivel1 }}>{buttonTextNivel1}</button>
+          </div>
+          <div style={{ flex: '1', marginRight: '20px' }}>
+            <h3>Nivel 2</h3>
+            <input type="file" style={{ marginBottom: '5px' }} />
+            <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(2)} style={{ color: buttonColorNivel2 }}>{buttonTextNivel2}</button>
+          </div>
+          <div style={{ flex: '1' }}>
+            <h3>Nivel 3</h3>
+            <input type="file" style={{ marginBottom: '5px' }} />
+            <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(3)} style={{ color: buttonColorNivel3 }}>{buttonTextNivel3}</button>
+          </div>
+        </div>
         {message && <p>{message}</p>} {/* Mostrar mensaje si está definido */}
       </div>
     </div>
   );
 };
-
+     
 export default Game;
