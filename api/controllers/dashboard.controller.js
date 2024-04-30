@@ -100,33 +100,39 @@ export const userDashboardInfo = async (req, res) =>{
     const apellido1Usuario = decoded.user_metadata.apellido1;
     const puestoUsuario = decoded.user_metadata.puestoUsuario;
 
-    let { data: horas_totales_por_dia, error } = await supabase
+    let { data: actividadSemanal, error } = await supabase
     .from('horas_totales_por_dia')
     .select("*")
     .eq("id_usuario", idUsuario);
-
     if(error) throw error;
-        
-    userInfoJson["actividadSemanal"] = horas_totales_por_dia;
 
-    let { data: curso_en_progreso, error1 } = await supabase
+    let { data: cursoEnProgreso, error1 } = await supabase
     .from('curso_en_progreso_usuario')
     .select("*")
     .eq("id_usuario", idUsuario);
-
     if(error1) throw error1;
 
-    userInfoJson["cursoEnProgreso"] = curso_en_progreso;
-
-    
     let { data: cursosCompletados, error2 } = await supabase
-    .rpc('total_cursos_completados_usuario', {"id_usuario" : idUsuario});
-
-    console.log(cursosCompletados);
-
+    .rpc('total_cursos_completados_usuario', { "p_id_usuario":
+        idUsuario
+    })
     if(error2) throw error2;
     
-    userInfoJson["cursosCompletados"] = cursosCompletados;
+    let { data: leaderboard, error3 } = await supabase
+        .from('top_usuarios_puntos_semana_pais')
+        .select('*');
+
+    if(error3) throw error;
+
+    userInfoJson = {
+        "nombre" : nombreUsuario,
+        "apellido1": apellido1Usuario,
+        "puesto": puestoUsuario,
+        "cursosCompletados": cursosCompletados,
+        "cursoEnProgreso": cursoEnProgreso,
+        "actividadSemanal": actividadSemanal,
+        "leaderboard": leaderboard
+    }
 
     res.json(userInfoJson)
 
