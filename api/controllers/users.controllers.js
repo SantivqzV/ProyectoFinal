@@ -1,4 +1,7 @@
 import { supabase } from "../database/db.js";
+import jwt from 'jsonwebtoken';
+let unity_user_id;
+
 
 // Register a new user
 export const register = async (req, res) => {
