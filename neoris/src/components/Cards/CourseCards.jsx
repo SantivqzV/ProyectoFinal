@@ -5,6 +5,7 @@ import Skeleton from '@mui/material/Skeleton';
 const CourseCards = ({cards}) => {
 
   const loading = false;
+  console.log("HOADHKAJBVHJABISBUCIABSIC");
   
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-10">
