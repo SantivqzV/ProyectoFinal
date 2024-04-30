@@ -2,25 +2,17 @@ import React from 'react'
 import { LineChart } from '@mui/x-charts/LineChart'
 import { Card } from '@mui/material';
 
-const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
-const xLabels = [
-  'Page A',
-  'Page B',
-  'Page C',
-  'Page D',
-  'Page E',
-  'Page F',
-  'Page G',
-];
+const SimpleLineChart = ({ data }) => {
+  const xLabels = data.map(item => item.hora_dia);
+  const uData = data.map(item => item.cantidad_sesiones);
 
-const SimpleLineChart = () => {
   return (
     <Card className='w-full h-full p-3'>
       <LineChart
         series={[
-          { data: uData, label: 'uv' },
+          { data: uData, label: 'Cantidad de sesiones por hora del día' },
         ]}
-        xAxis={[{ scaleType: 'point', data: xLabels }]}
+        xAxis={[{ scaleType: 'point', data: xLabels, label: "Hora del dia" }]}
       />
     </Card>
   );

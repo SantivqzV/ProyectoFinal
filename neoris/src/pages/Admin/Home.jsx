@@ -41,6 +41,8 @@ const Home = () => {
   const totalNuevosUsuarios = nuevosUsuarios[0].cantidad_nuevos_usuarios;
   const labelNuevosUsuarios = nuevosUsuarios[0].pais ? nuevosUsuarios[0].pais : 'Global';
   const nombreCursoMasPopular = curso[0].nombre_curso ? curso[0].nombre_curso : 'Global';
+  const usoAplicacionPorHoraDia = data?.uso_aplicacion_por_hora_dia;
+
   ////
 
   return (
@@ -83,7 +85,7 @@ const Home = () => {
           <Pie cursosPopulares={cursosPopulares}/>
         </div>
         <div className=" col-span-2 xs:col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2 h-[60vh]">
-          <SimpleLineChart />
+          <SimpleLineChart data={usoAplicacionPorHoraDia} />
         </div>
       </div>
     </Box>
