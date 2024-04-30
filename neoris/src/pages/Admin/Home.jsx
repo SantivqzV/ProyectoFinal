@@ -34,6 +34,7 @@ const Home = () => {
   const nuevosUsuarios = data?.nuevos_usuarios;
   const usuarios = data?.total_usuarios;
   const curso = data?.curso_mas_popular;
+  const cursosPopulares = data?.cursos_populares;
   const totalUsuarios = usuarios[0].total_usuarios;
   const labelUsuarios = usuarios[0].pais ? usuarios[0].pais : 'Global';
   const labelCurso = curso[0].pais ? curso[0].pais : 'Global';
@@ -79,7 +80,7 @@ const Home = () => {
         className="p-20" />
       <div className="grid grid-cols-1 gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 pt-6">
         <div className=" col-span-1 xs:col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-1 h-[60vh]">
-          <Pie />
+          <Pie cursosPopulares={cursosPopulares}/>
         </div>
         <div className=" col-span-2 xs:col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2 h-[60vh]">
           <SimpleLineChart />
