@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 export const adminDashboardInfo = async (req,res) =>{
 
     let pais = req.params.pais;
+    pais = pais.toLowerCase();
     let adminInfoJson ={};
     console.log(pais);
 
