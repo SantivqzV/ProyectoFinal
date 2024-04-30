@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {FlexBetween, Header, Map, CourseCards, Pie, SimpleLineChart} from "../../components";
 import {Box, Button } from "@mui/material";
 
@@ -10,9 +10,15 @@ import PublicIcon from '@mui/icons-material/Public';
 
 import Grid from "@mui/material/Grid";
 
+import { getAdminDashboard } from "../../utils";
+
 const Home = () => {
 
   const [open, setOpen] = React.useState(false);
+
+  const [data, setData] = useState(null);
+
+  const [loading, setLoading] = useState(true);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -21,6 +27,30 @@ const Home = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    console.log('useEffect');
+    
+    const fetchData = async () => {
+      try {
+        const DashboardData = await getAdminDashboard();
+        setData(DashboardData);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(data?.nuevos_usuarios);
+
+  const nuevosUsuarios = data?.nuevos_usuarios;
 
   return (
     <Box m="1.5rem 2.5rem">
@@ -49,7 +79,7 @@ const Home = () => {
           </Dialog>
         </Box>
       </FlexBetween>
-      <CourseCards className="p-20" />
+      <CourseCards data1={nuevosUsuarios} className="p-20" />
       <div className="grid grid-cols-1 gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 pt-6">
         <div className=" col-span-1 xs:col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-1 h-[60vh]">
           <Pie />
