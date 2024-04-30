@@ -4,7 +4,7 @@ export const getLeaderboard = async (req,res) =>{
 
     try{
         let { data: top_usuarios_puntos_semana, error } = await supabase
-        .from('top_usuarios_puntos_semana')
+        .from('top_usuarios_puntos_semana_pais')
         .select('*');
 
         if(error) throw error;
