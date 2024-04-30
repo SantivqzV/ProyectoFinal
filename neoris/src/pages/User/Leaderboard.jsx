@@ -4,27 +4,26 @@ import { DataGrid } from '@mui/x-data-grid';
 
 const Leaderboard = () => {
 
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const dashboardData = await getLeaderboard();
+      // Agregar un campo 'id' único a cada fila
+      const dataWithIds = dashboardData.map((item, index) => ({ ...item, id: index }));
+      setData(dataWithIds);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    console.log('useEffect');   
-
-    const fetchData = async () => {
-      try {
-        const dashboardData = await getLeaderboard();
-        setData(dashboardData);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
+    console.log('useEffect');
     fetchData();
   }, []);
 
-
   console.log(data);
+
   // example data = [
   //   {
   //     id_usuario: 'f76271b9-5d8f-48fb-aa73-90cb5d33fb3f',
