@@ -3,21 +3,26 @@ import { getLeaderboard } from '../../utils';
 import { DataGrid } from '@mui/x-data-grid';
 
 const Leaderboard = () => {
-  const [data, setData] = useState(null);
 
-  const fetchData = async () => {
-    try {
-      const dashboardData = await getLeaderboard();
-      setData(dashboardData);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('useEffect');
+    console.log('useEffect');   
+
+    const fetchData = async () => {
+      try {
+        const dashboardData = await getLeaderboard();
+        setData(dashboardData);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     fetchData();
   }, []);
+
 
   console.log(data);
   // example data = [
@@ -42,10 +47,8 @@ const Leaderboard = () => {
       <DataGrid
         rows={data}
         columns={columns}
-        //loading={data.length === 0} 
         pageSize={5} 
       />
-      <button onClick={fetchData}>Actualizar datos</button>
     </div>
   );
 };
