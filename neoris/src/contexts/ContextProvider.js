@@ -67,13 +67,13 @@ export const ContextProvider = ({children}) => {
         
         const fetchData = async () => {
             try {
-            const tokenFromCookie = Cookies.get('token');
-            const DashboardData = await getUserDashboard(tokenFromCookie);
-            setData(DashboardData);
-            setLoading(false);
-            console.log(DashboardData);
+                const Cookie = Cookies.get('token');
+                const DashboardData = await getUserDashboard(Cookie);
+                setData(DashboardData);
+                setLoading(false);
+                console.log(DashboardData);
             } catch (error) {
-            console.error(error);
+                console.error(error);
             }
         };
         
