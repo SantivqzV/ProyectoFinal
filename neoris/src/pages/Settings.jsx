@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
-import { Header} from "../components";
+import { Header } from "../components";
 
 const Settings = () => {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-  const [darkModeEnabled, setDarkModeEnabled] = useState(false);
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [pushNotifications, setPushNotifications] = useState(true);
   const [leaderboardVisibility, setLeaderboardVisibility] = useState(true);
 
   const toggleNotifications = () => {
     setNotificationsEnabled(!notificationsEnabled);
-  };
-
-  const toggleDarkMode = () => {
-    setDarkModeEnabled(!darkModeEnabled);
   };
 
   const toggleEmailNotifications = () => {
@@ -29,13 +24,14 @@ const Settings = () => {
   };
 
   return (
-    <div style={{ height: 400, width: '100%', overflow: 'auto', fontFamily: 'Arial, sans-serif', fontSize: '16px', padding: '20px' }}>
+    <div style={{ height: '100%', width: '100%', overflow: 'auto', fontFamily: 'Arial, sans-serif', fontSize: '16px', padding: '20px' }}>
       <Header title="Settings" subtitle="Manage your account settings" />
-      <h2 style={{ marginBottom: '20px' }}>Settings</h2>
-      <div style={{ borderBottom: '1px solid #ccc', paddingBottom: '20px', marginBottom: '20px' }}>
-        <h3>General Settings</h3>
-        <p style={{ marginBottom: '10px' }}>Manage general settings for your account.</p>
-        <label>
+      <div style={{ backgroundColor: '#89D2E6', padding: '20px', borderRadius: '10px', marginBottom: '20px' , marginTop: '20px'}}>
+        <h2 style={{ marginBottom: '10px', color: '#333', fontWeight: "bold" }}>General Settings</h2>
+        <p>
+          Manage general settings for your account.
+        </p>
+        <label style={{ color: '#333' }}>
           <input
             type="checkbox"
             checked={notificationsEnabled}
@@ -43,20 +39,13 @@ const Settings = () => {
           />
           Enable Notifications
         </label>
-        <br />
-        <label>
-          <input
-            type="checkbox"
-            checked={darkModeEnabled}
-            onChange={toggleDarkMode}
-          />
-          Dark Mode
-        </label>
       </div>
-      <div style={{ borderBottom: '1px solid #ccc', paddingBottom: '20px', marginBottom: '20px' }}>
-        <h3>Notification Settings</h3>
-        <p style={{ marginBottom: '10px' }}>Configure how you receive notifications.</p>
-        <label>
+      <div style={{ backgroundColor: '#89D2E6', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>
+        <h2 style={{ marginBottom: '10px', color: '#333' , fontWeight: "bold"}}>Notification Settings</h2>
+        <p>
+          Configure how you receive notifications.
+        </p>
+        <label style={{ color: '#333' }}>
           <input
             type="checkbox"
             checked={emailNotifications}
@@ -65,7 +54,7 @@ const Settings = () => {
           Email Notifications
         </label>
         <br />
-        <label>
+        <label style={{ color: '#333' }}>
           <input
             type="checkbox"
             checked={pushNotifications}
@@ -74,10 +63,12 @@ const Settings = () => {
           Push Notifications
         </label>
       </div>
-      <div>
-        <h3>Gamification Settings</h3>
-        <p style={{ marginBottom: '10px' }}>Customize gamification features.</p>
-        <label>
+      <div style={{ backgroundColor: '#89D2E6', padding: '20px', borderRadius: '10px' }}>
+        <h2 style={{ marginBottom: '10px', color: '#333' , fontWeight: "bold"}}>Game Settings</h2>
+        <p>
+          Customize gamification features.
+        </p>
+        <label style={{ color: '#333' }}>
           <input
             type="checkbox"
             checked={leaderboardVisibility}
