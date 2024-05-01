@@ -43,11 +43,11 @@ const Leaderboard = ({condition}) => {
     ];
   } else{
     columns = [
-      { field: 'id', headerName: 'Posición', width: 150 },
-      { field: 'nombre', headerName: 'Nombre', width: 150 },
-      { field: 'apellido1', headerName: 'Apellido', width: 150 },
-      { field: 'pais', headerName: 'País', width: 150 },
-      { field: 'total_puntos_semana', headerName: 'Total Puntos Semana', width: 200 }
+      { field: 'id', headerName: 'Position', width: 150 },
+      { field: 'nombre', headerName: 'Name', width: 150 },
+      { field: 'apellido1', headerName: 'Surname', width: 150 },
+      { field: 'pais', headerName: 'Country', width: 150 },
+      { field: 'total_puntos_semana', headerName: 'Total Points Week', width: 200 }
     ];
   }
 
