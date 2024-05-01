@@ -51,11 +51,6 @@ export const links = [
         adminOnly: false,
       },
       {
-        name: 'Account',
-        icon: <AccountCircleIcon />,
-        adminOnly: false,
-      },
-      {
         name: 'Help',
         icon: <HelpIcon />,
         adminOnly: false,
