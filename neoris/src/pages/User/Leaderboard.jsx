@@ -46,7 +46,7 @@ const Leaderboard = ({condition}) => {
       { field: 'id', headerName: 'Position', width: 150 },
       { field: 'nombre', headerName: 'Name', width: 150 },
       { field: 'apellido1', headerName: 'Surname', width: 150 },
-      { field: 'pais', headerName: 'Country', width: 150 },
+      { field: 'pais', headerName: 'Nationality', width: 150 },
       { field: 'total_puntos_semana', headerName: 'Total Points Week', width: 200 }
     ];
   }
