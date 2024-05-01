@@ -44,6 +44,7 @@ const Leaderboard = () => {
     <div style={{ height: 400, width: '100%' }}>
       <div style={{ height: 400, width: '100%' }}>
       <Header title="Leaderboard" subtitle=" Top scores from Neoris Quest " />
+      <h2 style={{ marginBottom: '20px', marginTop: '50px'}}>See who's on top and climb the ranks!</h2>
 
         <DataGrid
           rows={data}
