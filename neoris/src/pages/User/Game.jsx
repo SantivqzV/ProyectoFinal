@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { putCertificado } from '../../certificados';
 import { decodeToken } from '../../utils';
+import { Header} from "../../components";
 
 const Game = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
@@ -37,7 +38,8 @@ const Game = () => {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}>NEORIS QUEST</h1>
+      <Header title="Game" subtitle="Neoris Quest" />
+      <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}></h1>
       <div style={{ display: 'inline-block' }}>
         <iframe
           title="Neoris Quest"

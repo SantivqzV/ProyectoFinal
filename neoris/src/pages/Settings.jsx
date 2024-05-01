@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Header} from "../components";
 
 const Settings = () => {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
@@ -30,6 +30,7 @@ const Settings = () => {
 
   return (
     <div style={{ height: 400, width: '100%', overflow: 'auto', fontFamily: 'Arial, sans-serif', fontSize: '16px', padding: '20px' }}>
+      <Header title="Settings" subtitle="Manage your account settings" />
       <h2 style={{ marginBottom: '20px' }}>Settings</h2>
       <div style={{ borderBottom: '1px solid #ccc', paddingBottom: '20px', marginBottom: '20px' }}>
         <h3>General Settings</h3>

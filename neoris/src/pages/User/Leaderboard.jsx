@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getLeaderboard } from '../../utils';
 import { DataGrid } from '@mui/x-data-grid';
+import { Header} from "../../components";
+
 
 const Leaderboard = () => {
 
@@ -41,6 +43,8 @@ const Leaderboard = () => {
   return (
     <div style={{ height: 400, width: '100%' }}>
       <div style={{ height: 400, width: '100%' }}>
+      <Header title="Leaderboard" subtitle=" Top scores from Neoris Quest " />
+
         <DataGrid
           rows={data}
           columns={columns}
