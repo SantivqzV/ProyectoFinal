@@ -5,9 +5,9 @@ import { Header} from "../../components";
 
 const Game = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
-  const [buttonTextNivel1, setButtonTextNivel1] = useState('Subir'); // Estado para el texto del botón del Nivel 1
-  const [buttonTextNivel2, setButtonTextNivel2] = useState('Subir'); // Estado para el texto del botón del Nivel 2
-  const [buttonTextNivel3, setButtonTextNivel3] = useState('Subir'); // Estado para el texto del botón del Nivel 3
+  const [buttonTextNivel1, setButtonTextNivel1] = useState('Submit'); // Estado para el texto del botón del Nivel 1
+  const [buttonTextNivel2, setButtonTextNivel2] = useState('Submit'); // Estado para el texto del botón del Nivel 2
+  const [buttonTextNivel3, setButtonTextNivel3] = useState('Submit'); // Estado para el texto del botón del Nivel 3
   const [buttonColorNivel1, setButtonColorNivel1] = useState('white'); // Estado para el color del botón del Nivel 1
   const [buttonColorNivel2, setButtonColorNivel2] = useState('white'); // Estado para el color del botón del Nivel 2
   const [buttonColorNivel3, setButtonColorNivel3] = useState('white'); // Estado para el color del botón del Nivel 3
@@ -19,13 +19,13 @@ const Game = () => {
     try {
       // Cambiar el texto del botón a "Subido" y el color del texto a azul
       if (nivel === 1) {
-        setButtonTextNivel1('Subido');
+        setButtonTextNivel1('Submitted');
         setButtonColorNivel1('green');
       } else if (nivel === 2) {
-        setButtonTextNivel2('Subido');
+        setButtonTextNivel2('Submitted');
         setButtonColorNivel2('green');
       } else if (nivel === 3) {
-        setButtonTextNivel3('Subido');
+        setButtonTextNivel3('Submitted');
         setButtonColorNivel3('green');
       }
 
