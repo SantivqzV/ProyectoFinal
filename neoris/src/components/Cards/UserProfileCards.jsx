@@ -4,14 +4,8 @@ import avatar from '../../data/avatar.jpg';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import Card from '@mui/material/Card';
 
-const UserProfileCards = () => {
-  
-  const firstName = "Santiago";
-  const lastName = "Vazquez";
-  const pais = "Mexico";
-  const position = "Jr Software Developer";
-
-  
+const UserProfileCards = ({firstName, lastName, country, position}) => {
+    
   return (
     <Card className="w-full h-full grid grid-cols-3 grid-rows-2 p-4 justify-center items-center">  
       {/* Top Row */}
@@ -32,7 +26,7 @@ const UserProfileCards = () => {
           <div className="text-center">
             <p className="font-semibold text-xl dark:text-gray-200 whitespace-nowrap"> {firstName} {lastName}</p>
             <p className="text-gray-500 text-sm dark:text-gray-400">  {position}   </p>
-            <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> {pais} </p>
+            <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> {country} </p>
           </div>
         </div>
       </div>

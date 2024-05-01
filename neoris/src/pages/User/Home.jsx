@@ -13,8 +13,7 @@ import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 
 
 
-const Home = () => {
-
+const Home = ({firstName, lastName, country, position}) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -54,7 +53,7 @@ const Home = () => {
       </FlexBetween>
       <div className="grid grid-cols-1 gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-4 pt-6">
         <div className=" col-span-1 xs:col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2 h-[50vh]">
-          <UserProfileCards />
+          <UserProfileCards firstName={firstName} lastName={lastName} country={country} position={position} />
         </div>
         
         <div className=" col-span-2 xs:col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2 h-[50vh]">
