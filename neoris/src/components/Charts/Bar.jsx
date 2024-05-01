@@ -4,7 +4,7 @@ import { BarChart } from '@mui/x-charts/BarChart';
 const Bar = () => {
   return (
     <div className=' flex flex-col p-4'>
-      <h1 className='text-xl font-bold pb-8'>Weekly Activity</h1>
+      <h1 className='text-xl font-bold pb-8'>Actividad Semanal</h1>
       <BarChart
         series={[
           { data: [60,23,13,15,17,19,20], color: "black" },
