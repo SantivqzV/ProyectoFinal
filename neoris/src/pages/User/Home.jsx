@@ -40,7 +40,7 @@ const Home = ({firstName, lastName, country, position}) => {
             onClick={handleClickOpen}
           >
             <VideogameAssetIcon sx={{ mr: "10px" }} />
-            Continuar Juego
+            Continue Game
           </Button>
         </Box>
       </FlexBetween>
