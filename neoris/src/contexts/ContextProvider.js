@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import { getAdminDashboard } from '../utils';
+import { getAdminDashboard, getUserDashboard } from '../utils';
 import { decodeToken } from '../utils';
 
 const StateContext = createContext();
@@ -57,8 +57,30 @@ export const ContextProvider = ({children}) => {
           }
         };
         
-        fetchData();
+        if(isAdmin){
+            fetchData();
+        }
       }, [filter]);
+
+    useEffect(() => {
+        console.log('useEffect');
+        
+        const fetchData = async () => {
+            try {
+            const tokenFromCookie = Cookies.get('token');
+            const DashboardData = await getUserDashboard(tokenFromCookie);
+            setData(DashboardData);
+            setLoading(false);
+            console.log(DashboardData);
+            } catch (error) {
+            console.error(error);
+            }
+        };
+        
+        if(!isAdmin){
+            fetchData();
+        }
+    }, []);
 
     return (
         <StateContext.Provider 

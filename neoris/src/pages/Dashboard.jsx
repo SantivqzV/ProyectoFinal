@@ -16,6 +16,7 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
   const lastName = infoUsuario.user_metadata.apellido1;
   const email = infoUsuario.email;
   const position = infoUsuario.user_metadata.puesto;
+  const country = infoUsuario.user_metadata.pais;
   
   return (
     <div className='flex'>
@@ -39,7 +40,7 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
         <div>
         <Routes>
           <Route path="/" element={isAdmin ? <Navigate to="/Home" /> :<Navigate to= "/Home" /> } />
-          <Route path="/Home" element={isAdmin ? <HomeAdmin /> : <HomeUser />} />
+          <Route path="/Home" element={isAdmin ? <HomeAdmin /> : <HomeUser firstName={firstName} lastName={lastName} country={country} position={position}/>} />
           <Route path="/Game" element={<Game />} />
           <Route path="/Leaderboard" element={<Leaderboard />} />
           <Route path="/Settings" element={<Settings />} />
