@@ -120,6 +120,8 @@ export const userDashboardInfo = async (req, res) =>{
 
     const decoded = jwt.decode(req.params.token);
 
+    console.log(decoded);
+
     var userInfoJson = {};
 
     const idUsuario = decoded.sub
