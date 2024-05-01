@@ -26,8 +26,8 @@ const Settings = () => {
   return (
     <div style={{ height: '100%', width: '100%', overflow: 'auto', fontFamily: 'Arial, sans-serif', fontSize: '16px', padding: '20px' }}>
       <Header title="Settings" subtitle="Manage your account settings" />
-      <div style={{ backgroundColor: '#89D2E6', padding: '20px', borderRadius: '10px', marginBottom: '20px' , marginTop: '20px'}}>
-        <h2 style={{ marginBottom: '10px', color: '#333', fontWeight: "bold" }}>General Settings</h2>
+      <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px' ,  marginTop: '20px' }}>
+        <h2 style={{ marginBottom: '10px', color: '#333' }}>General Settings</h2>
         <p>
           Manage general settings for your account.
         </p>
@@ -40,8 +40,8 @@ const Settings = () => {
           Enable Notifications
         </label>
       </div>
-      <div style={{ backgroundColor: '#89D2E6', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>
-        <h2 style={{ marginBottom: '10px', color: '#333' , fontWeight: "bold"}}>Notification Settings</h2>
+      <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>
+        <h2 style={{ marginBottom: '10px', color: '#333' }}>Notification Settings</h2>
         <p>
           Configure how you receive notifications.
         </p>
@@ -63,8 +63,8 @@ const Settings = () => {
           Push Notifications
         </label>
       </div>
-      <div style={{ backgroundColor: '#89D2E6', padding: '20px', borderRadius: '10px' }}>
-        <h2 style={{ marginBottom: '10px', color: '#333' , fontWeight: "bold"}}>Game Settings</h2>
+      <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px' }}>
+        <h2 style={{ marginBottom: '10px', color: '#333' }}>Gamification Settings</h2>
         <p>
           Customize gamification features.
         </p>

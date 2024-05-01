@@ -5,7 +5,7 @@ const HelpPage = () => {
   return (
     <div style={{ height: '100%', width: '100%', overflow: 'auto', fontFamily: 'Arial, sans-serif', fontSize: '16px', padding: '20px' }}>
       <Header title="Help" subtitle="HR Support and Resources" />
-      <div style={{ backgroundColor: '#f7f7f7', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>
+      <div style={{ backgroundColor: '#f7f7f7', padding: '20px', borderRadius: '10px', marginBottom: '20px', marginTop: '20px'  }}>
         <h2 style={{ marginBottom: '10px', color: '#333' , fontWeight: "bold"}}>Welcome to HR Support</h2>
         <p>
           Our HR Support Center is here to assist you with any questions or concerns related to your employment and professional development.
