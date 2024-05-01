@@ -28,13 +28,14 @@ const Settings = () => {
       <Header title="Configuraciones" subtitle="Maneja la configuración de tu cuenta" />
       <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px' ,  marginTop: '20px' }}>
         <h2 style={{ marginBottom: '10px', color: '#333' }}>Configuración General</h2>
+
         <label style={{ color: '#333' }}>
           <input
             type="checkbox"
             checked={notificationsEnabled}
             onChange={toggleNotifications}
           />
-          Activar Notificaciones
+          Enable Notifications
         </label>
       </div>
       <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>
@@ -45,7 +46,7 @@ const Settings = () => {
             checked={emailNotifications}
             onChange={toggleEmailNotifications}
           />
-          Notificaciones por correo
+          Email Notifications
         </label>
         <br />
         <label style={{ color: '#333' }}>
@@ -54,7 +55,7 @@ const Settings = () => {
             checked={pushNotifications}
             onChange={togglePushNotifications}
           />
-          Notificationes push
+          Push Notifications
         </label>
       </div>
       <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px' }}>
@@ -65,7 +66,7 @@ const Settings = () => {
             checked={leaderboardVisibility}
             onChange={toggleLeaderboardVisibility}
           />
-          Mostrar Leaderboard
+          Show Leaderboard
         </label>
       </div>
     </div>
