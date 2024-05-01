@@ -38,7 +38,7 @@ const Game = () => {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <Header title="Game" subtitle="Neoris Quest" />
+      <Header title="Juego" subtitle="Neoris Quest" />
       <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}></h1>
       <div style={{ display: 'inline-block' }}>
         <iframe
