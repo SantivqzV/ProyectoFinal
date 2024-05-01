@@ -54,7 +54,7 @@ const Game = () => {
       </div>
 
       
-      <div style={{ marginTop: '80px', textAlign: 'left', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ marginTop: '80px', textAlign: 'left', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '1300px', margin: '0 auto' }}>
         <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Subir Certificaciones</h2>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div style={{ flex: '1', marginRight: '20px' }}>
