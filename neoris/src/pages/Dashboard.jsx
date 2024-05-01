@@ -19,13 +19,6 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
   
   return (
     <div className='flex'>
-      <div className="fixed right-4 bottom-4" style={{zIndex: '1000'}}>
-        <Tooltip title="Settings">
-          <button type="button" className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white' style={{background: 'blue', borderRadius:'50%'}}>
-            <FiSettings className="text-2xl text-gray-500" />
-          </button>
-        </Tooltip>
-      </div>
       {activeMenu ? (
         <div className='w-72 fixed sidebar dark:ng-secondary-dark-bg bg-white '>
           <Sidebar isAdmin = {isAdmin} />
@@ -45,7 +38,7 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
 
         <div>
         <Routes>
-          <Route path="/" element={<Navigate to="/Home" />} />
+          <Route path="/" element={isAdmin ? <Navigate to="/Home" /> :<Navigate to= "/Home" /> } />
           <Route path="/Home" element={isAdmin ? <HomeAdmin /> : <HomeUser />} />
           <Route path="/Game" element={<Game />} />
           <Route path="/Leaderboard" element={<Leaderboard />} />

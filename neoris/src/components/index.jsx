@@ -19,3 +19,5 @@ export { default as Map } from './Charts/Map';
 
 export { default as CoursesCarrousel } from './Cards/CoursesCarrousel';
 export { default as CourseCardsRender} from './Cards/CourseCardsRender'; 
+export { default as UserProfileCards } from './Cards/UserProfileCards';
+export { default as UserStatCards } from './Cards/UserStatCards';
