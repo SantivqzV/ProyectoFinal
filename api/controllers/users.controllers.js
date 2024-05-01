@@ -1,6 +1,8 @@
 import { supabase } from "../database/db.js";
 import jwt from 'jsonwebtoken';
-let unity_user_id;
+
+
+let unity_user_id = "f76271b9-5d8f-48fb-aa73-90cb5d33fb3f";
 
 
 // Register a new user
