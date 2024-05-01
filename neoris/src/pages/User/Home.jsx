@@ -10,11 +10,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
+import {useStateContext} from "../../contexts/ContextProvider";
 
 
 
 const Home = ({firstName, lastName, country, position}) => {
   const [open, setOpen] = React.useState(false);
+  const {data, loading } = useStateContext();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -23,6 +25,12 @@ const Home = ({firstName, lastName, country, position}) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  if(loading){
+    return <div>Loading...</div>;
+  }
+
+  console.log(data);
 
   return (
     <Box m="1.5rem 2.5rem">
@@ -57,7 +65,7 @@ const Home = ({firstName, lastName, country, position}) => {
         </div>
         
         <div className=" col-span-2 xs:col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2 h-[50vh]">
-          <UserStatCards />
+          <UserStatCards data={data}/>
         </div>
 
       </div>
