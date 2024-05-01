@@ -57,10 +57,11 @@ export const ContextProvider = ({children}) => {
           }
         };
         
-        if(isAdmin){
+        if(isAdmin && isAuth){
+            console.log("hola")
             fetchData();
         }
-      }, [filter]);
+      }, [filter, isAuth]);
 
     useEffect(() => {
         console.log('useEffect');
@@ -77,10 +78,10 @@ export const ContextProvider = ({children}) => {
             }
         };
         
-        if(!isAdmin){
+        if(!isAdmin && isAuth){
             fetchData();
         }
-    }, []);
+    }, [isAuth]);
 
     return (
         <StateContext.Provider 

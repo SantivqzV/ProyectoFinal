@@ -52,19 +52,22 @@ const Leaderboard = ({condition}) => {
 
 
   return (
-    <DataGrid
-      rows={data}
-      columns={columns}
-      initialState={{
-        pagination: {
-          paginationModel: {
-            pageSize: 5,
+    <div className=' flex flex-col p-3'>
+      <h1 className='text-xl font-bold pb-8'>Leaderboard</h1>
+      <DataGrid
+        rows={data}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 3,
+            },
           },
-        },
-      }}
-      pageSizeOptions={[5]}
-      disableRowSelectionOnClick
-    />
+        }}
+        pageSizeOptions={[3]}
+        disableRowSelectionOnClick
+      />
+    </div>
   );
 };
 

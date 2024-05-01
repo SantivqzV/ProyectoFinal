@@ -20,6 +20,7 @@ const LoginPage = () => {
       const data = await login(email, password);
 
       if (data) {
+        console.log("hola")
         setIsAuth(true);
         navigate('/dashboard');
       } else {
