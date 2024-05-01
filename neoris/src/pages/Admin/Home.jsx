@@ -62,7 +62,7 @@ const Home = () => {
             onClick={handleClickOpen}
           >
             <PublicIcon sx={{ mr: "10px" }} />
-            Open Map
+            Abrir Mapa
           </Button>
           <Dialog fullWidth maxWidth="xl" open={open} onClose={handleClose}>
             <DialogTitle sx={{ fontSize: '2rem', textAlign: 'center', fontWeight: 'bold' }}>World View</DialogTitle>

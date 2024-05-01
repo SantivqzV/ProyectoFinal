@@ -27,9 +27,9 @@ const Settings = () => {
     <div style={{ height: '100%', width: '100%', overflow: 'auto', fontFamily: 'Arial, sans-serif', fontSize: '16px', padding: '20px' }}>
       <Header title="Settings" subtitle="Manage your account settings" />
       <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px' ,  marginTop: '20px' }}>
-        <h2 style={{ marginBottom: '10px', color: '#333' }}>General Settings</h2>
+        <h2 style={{ marginBottom: '10px', color: '#333' }}>Configuracion General</h2>
         <p>
-          Manage general settings for your account.
+          Manejar Configuraciones Generales De Tu Cuenta
         </p>
         <label style={{ color: '#333' }}>
           <input
@@ -37,13 +37,13 @@ const Settings = () => {
             checked={notificationsEnabled}
             onChange={toggleNotifications}
           />
-          Enable Notifications
+          Activar Notificaciones
         </label>
       </div>
       <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>
-        <h2 style={{ marginBottom: '10px', color: '#333' }}>Notification Settings</h2>
+        <h2 style={{ marginBottom: '10px', color: '#333' }}>Configuracion de Notificaciones</h2>
         <p>
-          Configure how you receive notifications.
+          Configurar como recibes notificaciones.
         </p>
         <label style={{ color: '#333' }}>
           <input
@@ -51,7 +51,7 @@ const Settings = () => {
             checked={emailNotifications}
             onChange={toggleEmailNotifications}
           />
-          Email Notifications
+          Notificaciones por correo
         </label>
         <br />
         <label style={{ color: '#333' }}>
@@ -60,13 +60,13 @@ const Settings = () => {
             checked={pushNotifications}
             onChange={togglePushNotifications}
           />
-          Push Notifications
+          Notificationes push
         </label>
       </div>
       <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px' }}>
-        <h2 style={{ marginBottom: '10px', color: '#333' }}>Gamification Settings</h2>
+        <h2 style={{ marginBottom: '10px', color: '#333' }}>Configuracion de juego</h2>
         <p>
-          Customize gamification features.
+          Personaliza las características de gamificación.
         </p>
         <label style={{ color: '#333' }}>
           <input
@@ -74,7 +74,7 @@ const Settings = () => {
             checked={leaderboardVisibility}
             onChange={toggleLeaderboardVisibility}
           />
-          Show Leaderboard
+          Mostrar Leaderboard
         </label>
       </div>
     </div>
