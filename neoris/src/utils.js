@@ -29,7 +29,7 @@ export const getAdminDashboard = async (pais) => {
 
 export const getLeaderboard = async () => {
   try{
-    const response = await axios.get("http://localhost:5001/getLeaderboard");
+    const response = await axios.get(`http://localhost:5001/getLeaderboard/${pais}`);
     const data = response.data;
     console.log(data);
     return data;

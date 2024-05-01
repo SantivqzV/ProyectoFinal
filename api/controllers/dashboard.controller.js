@@ -1,5 +1,6 @@
 import { supabase } from "../database/db.js";
 import jwt from 'jsonwebtoken';
+import {jwtDecode} from 'jwt-decode';
     
 
 export const adminDashboardInfo = async (req,res) =>{
@@ -120,12 +121,16 @@ export const adminDashboardInfo = async (req,res) =>{
 
 export const userDashboardInfo = async (req, res) =>{
 
-    if (!req.cookies || !req.cookies.token) {
+    if (!req.cookies || !req.cookies.Cookie || !req.cookies.Cookie.token) {
         throw new Error('JWT cookie is missing');
-      }
-  
-    const token = req.cookies.token; // Assumes JWT token is stored in a cookie named 'jwt'
-    const decoded = token.decode(token);
+    }
+       
+    const token = req.cookies.Cookie.token;
+    console.log("HOla");
+    console.log(token); 
+    // Assumes JWT token is stored in a cookie named 'jwt'
+    const decoded = jwtDecode(token);
+    console.log(decoded);
 
     var userInfoJson = {};
 
