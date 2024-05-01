@@ -29,11 +29,23 @@ export const getAdminDashboard = async (pais) => {
 
 export const getLeaderboard = async () => {
   try{
-    const response = await axios.get("http://localhost:5001/getLeaderboard");
+    const response = await axios.get(`http://localhost:5001/getLeaderboard/`);
     const data = response.data;
     console.log(data);
     return data;
   } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error; // Rethrow the error to handle it in the caller function
+  }
+};
+
+export const getUserDashboard = async (token) => {
+  try{
+    const response = await axios.get(`http://localhost:5001/userDashboard/${token}`);
+    const data = response.data;
+    console.log(data);
+    return data;
+  } catch (error){
     console.error("Error fetching data:", error);
     throw error; // Rethrow the error to handle it in the caller function
   }

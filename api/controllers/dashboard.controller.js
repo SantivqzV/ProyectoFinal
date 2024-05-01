@@ -1,6 +1,5 @@
 import { supabase } from "../database/db.js";
-import jwt from 'jsonwebtoken';
-    
+import jwt from 'jsonwebtoken';  
 
 export const adminDashboardInfo = async (req,res) =>{
 
@@ -117,18 +116,18 @@ export const adminDashboardInfo = async (req,res) =>{
     }
 }
 
-
 export const userDashboardInfo = async (req, res) =>{
 
-    const token = req.headers.authorization.split(' ')[1]; // Assumes 'Bearer' scheme
-    const decoded = jwt.decode(token);
+    const decoded = jwt.decode(req.params.token);
+
+    console.log(decoded);
 
     var userInfoJson = {};
 
     const idUsuario = decoded.sub
     const nombreUsuario = decoded.user_metadata.nombre;
     const apellido1Usuario = decoded.user_metadata.apellido1;
-    const puestoUsuario = decoded.user_metadata.puestoUsuario;
+    const puestoUsuario = decoded.user_metadata.puesto;
 
     let { data: actividadSemanal, error } = await supabase
     .from('horas_totales_por_dia')
@@ -147,12 +146,23 @@ export const userDashboardInfo = async (req, res) =>{
         idUsuario
     })
     if(error2) throw error2;
-    
-    let { data: leaderboard, error3 } = await supabase
-        .from('top_usuarios_puntos_semana_pais')
-        .select('*');
 
-    if(error3) throw error;
+    
+    let { data: puntosSemana, error3 } = await supabase
+    .from('top_usuarios_puntos_semana')
+    .select('total_puntos_semana')
+    .eq("id_usuario", idUsuario);
+
+    if(error3) throw error3;
+
+    
+    let { data: puntosTotales, error4 } = await supabase
+    .from('progreso_usuario')
+    .select('puntaje')
+    .eq("id_usuario", idUsuario);
+            
+    if(error4) throw error4;
+
 
     userInfoJson = {
         "nombre" : nombreUsuario,
@@ -161,7 +171,8 @@ export const userDashboardInfo = async (req, res) =>{
         "cursosCompletados": cursosCompletados,
         "cursoEnProgreso": cursoEnProgreso,
         "actividadSemanal": actividadSemanal,
-        "leaderboard": leaderboard
+        "puntosSemana": puntosSemana,
+        "puntosTotales": puntosTotales
     }
 
     res.json(userInfoJson)
