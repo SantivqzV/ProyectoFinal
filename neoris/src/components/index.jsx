@@ -16,6 +16,7 @@ export { default as SimpleLineChart } from './Charts/SimpleLineChart';
 export { default as Pie } from './Charts/Pie';
 export { default as Bar } from './Charts/Bar';
 export { default as Map } from './Charts/Map';
+export { default as Leaderboard } from './Cards/Leaderboard';
 
 export { default as CoursesCarrousel } from './Cards/CoursesCarrousel';
 export { default as CourseCardsRender} from './Cards/CourseCardsRender'; 

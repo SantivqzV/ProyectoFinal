@@ -1,13 +1,8 @@
 import React from "react";
-import {FlexBetween, Header, Map, UserProfileCards, UserStatCards, Bar} from "../../components";
+import {FlexBetween, Header, UserProfileCards, UserStatCards, Bar, Leaderboard} from "../../components";
 import {Box, Button } from "@mui/material";
 import Card from '@mui/material/Card';
-import {Leaderboard} from "..";
 import { useNavigate } from 'react-router-dom';
-
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
 
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import {useStateContext} from "../../contexts/ContextProvider";
@@ -18,19 +13,15 @@ const Home = ({firstName, lastName, country, position}) => {
   const [open, setOpen] = React.useState(false);
   const {data, loading } = useStateContext();
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  const navigate = useNavigate();
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleClickOpen = () => {
+    navigate('/game');
   };
 
   if(loading){
     return <div>Loading...</div>;
   }
-
-  console.log(data);
 
   return (
     <Box m="1.5rem 2.5rem">
@@ -51,12 +42,6 @@ const Home = ({firstName, lastName, country, position}) => {
             <VideogameAssetIcon sx={{ mr: "10px" }} />
             Continue Game
           </Button>
-          <Dialog fullWidth maxWidth="xl" open={open} onClose={handleClose}>
-            <DialogTitle sx={{ fontSize: '2rem', textAlign: 'center', fontWeight: 'bold' }}>World View</DialogTitle>
-            <DialogContent style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Map />
-            </DialogContent>
-          </Dialog>
         </Box>
       </FlexBetween>
       <div className="grid grid-cols-1 gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-4 pt-6">
