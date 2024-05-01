@@ -8,6 +8,6 @@ const router = Router();
 
 router.get("/adminDashboard/:pais", adminDashboardInfo);
 
-router.get("/userDashboard", userDashboardInfo);
+router.get("/userDashboard/:token", userDashboardInfo);
 
 export default router;

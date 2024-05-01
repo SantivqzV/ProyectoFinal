@@ -118,19 +118,9 @@ export const adminDashboardInfo = async (req,res) =>{
     }
 }
 
-
 export const userDashboardInfo = async (req, res) =>{
 
-    if (!req.cookies || !req.cookies.Cookie || !req.cookies.Cookie.token) {
-        throw new Error('JWT cookie is missing');
-    }
-       
-    const token = req.cookies.Cookie.token;
-    console.log("HOla");
-    console.log(token); 
-    // Assumes JWT token is stored in a cookie named 'jwt'
-    const decoded = jwtDecode(token);
-    console.log(decoded);
+    const decoded = jwt.decode(req.params.token);
 
     var userInfoJson = {};
 
