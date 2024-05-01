@@ -1,7 +1,5 @@
 import { supabase } from "../database/db.js";
-import jwt from 'jsonwebtoken';
-import {jwtDecode} from 'jwt-decode';
-    
+import jwt from 'jsonwebtoken';  
 
 export const adminDashboardInfo = async (req,res) =>{
 

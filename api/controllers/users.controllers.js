@@ -82,15 +82,9 @@ export const reset_password= async (req, res) => {
 
 export const getIdFromToken = async (req, res) => {
   try {
-    if (!req.cookies || !req.cookies.token) {
-      throw new Error('JWT cookie is missing');
-    }
 
-    const token = req.cookies.token; // Assumes JWT token is stored in a cookie named 'jwt'
-    const decoded = token.decode(token);
-
-    console.log(decoded.sub)
-
+    const decoded = jwt.decode(req.params.token);
+    
     res.status(200).json({ "id": decoded.sub });
     unity_user_id = decoded.sub
   } catch (error) {
