@@ -4,7 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Header} from "../../components";
 
 
-const Leaderboard = () => {
+const Leaderboard = ({condition}) => {
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,14 +31,26 @@ const Leaderboard = () => {
 
   console.log(data);
 
+  let columns =[];
 
-  const columns = [
-    { field: 'id', headerName: 'Posición', width: 150 },
-    { field: 'nombre', headerName: 'Nombre', width: 150 },
-    { field: 'apellido1', headerName: 'Apellido', width: 150 },
-    { field: 'pais', headerName: 'País', width: 150 },
-    { field: 'total_puntos_semana', headerName: 'Total Puntos Semana', width: 200 }
-  ];
+  if(condition == "true"){
+    columns = [
+      { field: 'id', headerName: 'Posición', width: 100 },
+      { field: 'nombre', headerName: 'Nombre', width: 100 },
+      { field: 'apellido1', headerName: 'Apellido', width: 100 },
+      { field: 'pais', headerName: 'País', width: 100 },
+      { field: 'total_puntos_semana', headerName: 'Puntos', width: 100 }
+    ];
+  } else{
+    columns = [
+      { field: 'id', headerName: 'Posición', width: 150 },
+      { field: 'nombre', headerName: 'Nombre', width: 150 },
+      { field: 'apellido1', headerName: 'Apellido', width: 150 },
+      { field: 'pais', headerName: 'País', width: 150 },
+      { field: 'total_puntos_semana', headerName: 'Total Puntos Semana', width: 200 }
+    ];
+  }
+
 
   return (
     <div style={{ height: 400, width: '100%' }}>
