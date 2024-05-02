@@ -61,7 +61,6 @@ export const login = async (req, res) => {
 // Logout user
 export const logout = async (req, res) => {
   // Implement user logout logic here
-  
     try{
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
