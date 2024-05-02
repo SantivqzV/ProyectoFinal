@@ -6,61 +6,57 @@ import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
 import avatar4 from './avatar4.jpg';
 
-
 export const ProfileData = [
-    {
-      icon: <BsCurrencyDollar />,
-      title: 'My Profile',
-      desc: 'Account Settings',
-      iconColor: '#03C9D7',
-      iconBg: '#E5FAFB',
-    },
-    {
-      icon: <BsShield />,
-      title: 'My Inbox',
-      desc: 'Messages & Emails',
-      iconColor: 'rgb(0, 194, 146)',
-      iconBg: 'rgb(235, 250, 242)',
-    },
-    {
-      icon: <FiCreditCard />,
-      title: 'My Tasks',
-      desc: 'To-do and Daily Tasks',
-      iconColor: 'rgb(255, 244, 229)',
-      iconBg: 'rgb(254, 201, 15)',
-    },
+  {
+    icon: <BsCurrencyDollar />,
+    title: 'Mi Perfil',
+    desc: 'Configuración de la Cuenta',
+    iconColor: '#03C9D7',
+    iconBg: '#E5FAFB',
+  },
+  {
+    icon: <BsShield />,
+    title: 'Mi Bandeja de Entrada',
+    desc: 'Mensajes y Correos Electrónicos',
+    iconColor: 'rgb(0, 194, 146)',
+    iconBg: 'rgb(235, 250, 242)',
+  },
+  {
+    icon: <FiCreditCard />,
+    title: 'Mis Tareas',
+    desc: 'Tareas Pendientes y Diarias',
+    iconColor: 'rgb(255, 244, 229)',
+    iconBg: 'rgb(254, 201, 15)',
+  },
 ];
 
 export const chatData = [
   {
-    image:
-      avatar2,
-    message: 'Aylen Joined the Team!',
-    desc: 'Congratulate her',
+    image: avatar2,
+    message: '¡Aylen se ha unido al equipo!',
+    desc: 'Felicítala',
     time: '9:08 AM',
   },
   {
-    image:
-      avatar3,
-    message: 'New message received',
-    desc: 'Yeti sent you new message',
+    image: avatar3,
+    message: 'Nuevo mensaje recibido',
+    desc: 'Yeti te envió un nuevo mensaje',
     time: '11:56 AM',
   },
   {
-    image:
-      avatar4,
-    message: 'New Payment received',
-    desc: 'Check your earnings',
+    image: avatar4,
+    message: 'Nuevo pago recibido',
+    desc: 'Revisa tus ganancias',
     time: '4:39 AM',
   },
   {
-    image:
-      avatar,
-    message: 'Elias completed tasks',
-    desc: 'Assign him new tasks',
+    image: avatar,
+    message: 'Elias completó tareas',
+    desc: 'Asignarle nuevas tareas',
     time: '1:12 AM',
   },
 ];
+
 
 export const mapa = [
   {

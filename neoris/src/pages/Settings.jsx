@@ -26,16 +26,15 @@ const Settings = () => {
   return (
     <div style={{ height: '100%', width: '100%', overflow: 'auto', fontFamily: 'Arial, sans-serif', fontSize: '16px', padding: '20px' }}>
       <Header title="Configuraciones" subtitle="Maneja la configuración de tu cuenta" />
-      <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px' ,  marginTop: '20px' }}>
+      <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px', marginTop: '20px' }}>
         <h2 style={{ marginBottom: '10px', color: '#333' }}>Configuración General</h2>
-
         <label style={{ color: '#333' }}>
           <input
             type="checkbox"
             checked={notificationsEnabled}
             onChange={toggleNotifications}
           />
-          Enable Notifications
+          Activar Notificaciones
         </label>
       </div>
       <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>
@@ -46,7 +45,7 @@ const Settings = () => {
             checked={emailNotifications}
             onChange={toggleEmailNotifications}
           />
-          Email Notifications
+          Notificaciones por Correo Electrónico
         </label>
         <br />
         <label style={{ color: '#333' }}>
@@ -55,18 +54,18 @@ const Settings = () => {
             checked={pushNotifications}
             onChange={togglePushNotifications}
           />
-          Push Notifications
+          Notificaciones Push
         </label>
       </div>
       <div style={{ backgroundColor: 'rgba(137, 210, 230, 0.5)', padding: '20px', borderRadius: '10px' }}>
-        <h2 style={{ marginBottom: '10px', color: '#333' }}>Configuración de juego</h2>
+        <h2 style={{ marginBottom: '10px', color: '#333' }}>Configuración de Juego</h2>
         <label style={{ color: '#333' }}>
           <input
             type="checkbox"
             checked={leaderboardVisibility}
             onChange={toggleLeaderboardVisibility}
           />
-          Show Leaderboard
+          Mostrar Tabla de Puntuaciones
         </label>
       </div>
     </div>

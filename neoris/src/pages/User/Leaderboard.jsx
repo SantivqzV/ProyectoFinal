@@ -43,11 +43,11 @@ const Leaderboard = ({condition}) => {
     ];
   } else{
     columns = [
-      { field: 'id', headerName: 'Position', width: 150 },
-      { field: 'nombre', headerName: 'Name', width: 150 },
-      { field: 'apellido1', headerName: 'Surname', width: 150 },
-      { field: 'pais', headerName: 'Nationality', width: 150 },
-      { field: 'total_puntos_semana', headerName: 'Total Points Week', width: 200 }
+      { field: 'id', headerName: 'Posición', width: 150 },
+      { field: 'nombre', headerName: 'Nombre', width: 150 },
+      { field: 'apellido1', headerName: 'Apellido', width: 150 },
+      { field: 'pais', headerName: 'País', width: 150 },
+      { field: 'total_puntos_semana', headerName: 'Puntos Totales Semana', width: 200 }
     ];
   }
 
@@ -55,8 +55,8 @@ const Leaderboard = ({condition}) => {
   return (
     <div style={{ height: 400, width: '100%' }}>
       <div style={{ height: 400, width: '100%' }}>
-      <Header title="Leaderboard" subtitle=" Top scores from Neoris Quest " />
-      <h2 style={{ marginBottom: '20px', marginTop: '50px'}}>See who's on top and climb the ranks!</h2>
+      <Header title="Leaderboard" subtitle=" Mejores puntajes de Neoris Quest " />
+      <h2 style={{ marginBottom: '20px', marginTop: '50px'}}>¡Ve quién está en la cima y sube en el ranking!</h2>
 
         <DataGrid
           rows={data}

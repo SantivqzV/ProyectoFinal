@@ -5,9 +5,9 @@ import { Header} from "../../components";
 
 const Game = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
-  const [buttonTextNivel1, setButtonTextNivel1] = useState('Submit'); // Estado para el texto del botón del Nivel 1
-  const [buttonTextNivel2, setButtonTextNivel2] = useState('Submit'); // Estado para el texto del botón del Nivel 2
-  const [buttonTextNivel3, setButtonTextNivel3] = useState('Submit'); // Estado para el texto del botón del Nivel 3
+  const [buttonTextNivel1, setButtonTextNivel1] = useState('Subir'); // Estado para el texto del botón del Nivel 1
+  const [buttonTextNivel2, setButtonTextNivel2] = useState('Subir'); // Estado para el texto del botón del Nivel 2
+  const [buttonTextNivel3, setButtonTextNivel3] = useState('Subir'); // Estado para el texto del botón del Nivel 3
   const [buttonColorNivel1, setButtonColorNivel1] = useState('white'); // Estado para el color del botón del Nivel 1
   const [buttonColorNivel2, setButtonColorNivel2] = useState('white'); // Estado para el color del botón del Nivel 2
   const [buttonColorNivel3, setButtonColorNivel3] = useState('white'); // Estado para el color del botón del Nivel 3
@@ -19,13 +19,13 @@ const Game = () => {
     try {
       // Cambiar el texto del botón a "Subido" y el color del texto a azul
       if (nivel === 1) {
-        setButtonTextNivel1('Submitted');
+        setButtonTextNivel1('Subido');
         setButtonColorNivel1('green');
       } else if (nivel === 2) {
-        setButtonTextNivel2('Submitted');
+        setButtonTextNivel2('Subido');
         setButtonColorNivel2('green');
       } else if (nivel === 3) {
-        setButtonTextNivel3('Submitted');
+        setButtonTextNivel3('Subido');
         setButtonColorNivel3('green');
       }
 
@@ -43,7 +43,7 @@ const Game = () => {
       <div style={{ display: 'inline-block' }}>
         <iframe
           title="Neoris Quest"
-          src="https://itch.io/embed-upload/10307091?color=333333"
+          src="https://itch.io/embed-upload/10322870?color=333333"
           allowFullScreen
           width="975"
           height="670"
@@ -54,7 +54,7 @@ const Game = () => {
       </div>
 
       
-      <div style={{ marginTop: '80px', textAlign: 'left', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '1300px', margin: '0 auto' }}>
+      <div style={{ marginTop: '80px', textAlign: 'left', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '1500px', margin: '0 auto' }}>
         <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Subir Certificaciones</h2>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div style={{ flex: '1', marginRight: '20px' }}>
