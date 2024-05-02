@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { putCertificado } from '../../certificados';
 import { decodeToken } from '../../utils';
 import { Header} from "../../components";
+import Cookies from 'js-cookie';
+import { sendId } from '../../utils';
+
 
 const Game = () => {
   const [message, setMessage] = useState(""); // Estado para el mensaje
@@ -16,8 +19,10 @@ const Game = () => {
   const id_trabajador = infoUsuario.sub;
 
   useEffect(() => {
-    first
-  
+    const Cookie = Cookies.get('token');
+    sendId(Cookie)
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
   }, [])
   
 

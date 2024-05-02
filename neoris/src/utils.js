@@ -51,7 +51,7 @@ export const getUserDashboard = async (token) => {
   }
 };
 
-export const sendId = async () => {
+export const sendId = async (token) => {
   try {
     const response = await axios.post(`http://localhost:5001/getIdFromToken/${token}`)
     const data = response.data;
