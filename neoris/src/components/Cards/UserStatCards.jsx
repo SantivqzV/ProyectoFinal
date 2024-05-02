@@ -6,11 +6,8 @@ const UserStatCards = ({data}) => {
   console.log(data);
 
   const cursosCompletados = data.cursosCompletados;
-  console.log(cursosCompletados);
   const cursosProgreso = data.cursoEnProgreso[0].nombre_curso;
-  console.log(cursosProgreso);
   const puntosTotales = data.puntosTotales[0].puntaje;
-  console.log(puntosTotales);
 
 
   
@@ -38,7 +35,7 @@ const UserStatCards = ({data}) => {
             <p className='text-start text-gray-500 text-xl overflow-wrap break-word font-bold'>Curso en progreso</p>
           </div>
           <div className="flex justify-center items-center">
-            <p className='text-center text-gray-900 text-3xl font-bold white-space normal pt-5'>{cursosProgreso}</p>
+            <p className='text-center text-gray-900 text-2xl font-bold white-space normal pt-5'>{cursosProgreso}</p>
           </div>
         </div>
       </div>
