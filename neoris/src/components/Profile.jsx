@@ -10,10 +10,11 @@ import { logout } from '../auth';
 import Cookies from 'js-cookie';
 
 const Profile = ({firstName, lastName, email, position}) => {
-  const {isClicked, initialState, setIsAuth} = useStateContext();
+  const {isClicked, initialState, setIsAuth, handleClick} = useStateContext();
 
   const handleLogout = async () => {
     await logout();
+    handleClick();
     setIsAuth(false);
     Cookies.remove('token');
   }

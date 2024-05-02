@@ -15,6 +15,12 @@ const Game = () => {
   const infoUsuario = decodeToken();
   const id_trabajador = infoUsuario.sub;
 
+  useEffect(() => {
+    first
+  
+  }, [])
+  
+
   const handleButtonClick = async (nivel) => {
     try {
       // Cambiar el texto del botón a "Subido" y el color del texto a azul

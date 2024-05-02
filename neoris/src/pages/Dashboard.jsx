@@ -39,7 +39,7 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
 
         <div>
         <Routes>
-          <Route path="/" element={isAdmin ? <Navigate to="/Home" /> :<Navigate to= "/Home" /> } />
+          <Route path="*" element={isAdmin ? <Navigate to="/Home" /> :<Navigate to= "/Home" /> } />
           <Route path="/Home" element={isAdmin ? <HomeAdmin /> : <HomeUser firstName={firstName} lastName={lastName} country={country} position={position}/>} />
           <Route path="/Game" element={<Game />} />
           <Route path="/Leaderboard" element={<Leaderboard />} />

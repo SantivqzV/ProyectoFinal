@@ -51,6 +51,18 @@ export const getUserDashboard = async (token) => {
   }
 };
 
+export const sendId = async () => {
+  try {
+    const response = await axios.post(`http://localhost:5001/getIdFromToken/${token}`)
+    const data = response.data;
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error("ERROR");
+    throw error;
+  }
+}
+
 export function decodeToken(){
   const token = Cookies.get('token');
 

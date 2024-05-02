@@ -63,7 +63,7 @@ const Home = ({firstName, lastName, country, position}) => {
         </div>
         
         <div className=" col-span-2 xs:col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2 h-[50vh]">
-            <Card className="w-full h-full p-3"><Bar /></Card>
+            <Card className="w-full h-full p-3"><Bar data={data}/></Card>
         </div>
       </div>
     </Box>    
