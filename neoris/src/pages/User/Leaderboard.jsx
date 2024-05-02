@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getLeaderboard } from '../../utils';
 import { DataGrid } from '@mui/x-data-grid';
-import { Header} from "../../components";
+import { Header } from "../../components";
 
-
-const Leaderboard = ({condition}) => {
+const Leaderboard = () => {
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,47 +30,27 @@ const Leaderboard = ({condition}) => {
 
   console.log(data);
 
-  let columns =[];
-
-  if(condition == "true"){
-    columns = [
-      { field: 'id', headerName: 'Posición', width: 100 },
-      { field: 'nombre', headerName: 'Nombre', width: 100 },
-      { field: 'apellido1', headerName: 'Apellido', width: 100 },
-      { field: 'pais', headerName: 'País', width: 100 },
-      { field: 'total_puntos_semana', headerName: 'Puntos', width: 100 }
-    ];
-  } else{
-    columns = [
-      { field: 'id', headerName: 'Posición', width: 150 },
-      { field: 'nombre', headerName: 'Nombre', width: 150 },
-      { field: 'apellido1', headerName: 'Apellido', width: 150 },
-      { field: 'pais', headerName: 'País', width: 150 },
-      { field: 'total_puntos_semana', headerName: 'Puntos Totales Semana', width: 200 }
-    ];
-  }
-
+  const columns = [
+    { field: 'id', headerName: 'Posición', flex: 1, align: 'center', headerAlign: 'center' },
+    { field: 'nombre', headerName: 'Nombre', flex: 1, align: 'center', headerAlign: 'center' },
+    { field: 'apellido1', headerName: 'Apellido', flex: 1, align: 'center', headerAlign: 'center' },
+    { field: 'pais', headerName: 'País', flex: 1, align: 'center', headerAlign: 'center' },
+    { field: 'total_puntos_semana', headerName: 'Puntos Totales Semana', flex: 1, align: 'center', headerAlign: 'center' }
+  ];
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <div style={{ height: 400, width: '100%' }}>
+    <div className="h-full w-full overflow-auto font-sans text-base p-5">
       <Header title="Leaderboard" subtitle=" Mejores puntajes de Neoris Quest " />
-      <h2 style={{ marginBottom: '20px', marginTop: '50px'}}>¡Ve quién está en la cima y sube en el ranking!</h2>
-
+      <h2 className="mb-5 mt-10 text-lg">¡Ve quién está en la cima y sube en el ranking!</h2>
+      <div className="h-full w-full overflow-auto">
         <DataGrid
           rows={data}
           columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                pageSize: 5,
-              },
-            },
-          }}
-          pageSizeOptions={[5]}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
           disableRowSelectionOnClick
         />
-    </div>
+      </div>
     </div>
   );
 };

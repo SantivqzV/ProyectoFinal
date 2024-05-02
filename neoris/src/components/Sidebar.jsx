@@ -20,8 +20,8 @@ const Sidebar = ({isAdmin}) => {
   }
 
   // Classname for active and normal links
-  const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md m-2 bg-secondary-dark-bg text-white';
-  const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
+  const activeLink = 'flex items-center gap-5 px-4 pt-3 pb-2.5 rounded-lg text-md m-2 bg-secondary-dark-bg text-white';
+  const normalLink = 'flex items-center gap-5 px-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
   return (
     <div className='flex relative'>
@@ -56,7 +56,7 @@ const Sidebar = ({isAdmin}) => {
                     key={Link.name}
                     onClick={handleCloseSideBar}
                     className={({isActive}) => 
-                      isActive ? activeLink : normalLink}
+                      isActive ? activeLink : normalLink + " w-full"}
                   >
                     {Link.icon} 
                     <span className='capitalize'>

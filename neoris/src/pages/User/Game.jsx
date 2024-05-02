@@ -48,10 +48,10 @@ const Game = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div className="h-full w-full overflow-auto font-sans text-base p-5">
       <Header title="Juego" subtitle="Neoris Quest" />
-      <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}></h1>
-      <div style={{ display: 'inline-block' }}>
+      <h1 className='font-bold text-4xl my-5'></h1>
+      <div className='inline-block'>
         <iframe
           title="Neoris Quest"
           src="https://itch.io/embed-upload/10322870?color=333333"
@@ -59,29 +59,29 @@ const Game = () => {
           width="975"
           height="670"
           frameBorder="1"
-          style={{ display: 'block' }}
+          className='block w-full h-auto'
         >
         </iframe>
       </div>
 
       
-      <div style={{ marginTop: '80px', textAlign: 'left', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '1500px', margin: '0 auto' }}>
-        <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Subir Certificaciones</h2>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div style={{ flex: '1', marginRight: '20px' }}>
+      <div className='mt-20 text-left border border-gray-300 rounded p-5 shadow-md max-w-6xl mx-auto'>
+        <h2 className='mb-5 font-bold'>Subir Certificaciones</h2>
+        <div className='flex lg:flex-col justify-between'>
+          <div className='flex-1 lg:mr-0 lg:mb-5 mr-5'>
             <h3>Nivel 1</h3>
             <input type="file" style={{ marginBottom: '5px' }} />
-            <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(1)} style={{ color: buttonColorNivel1 }}>{buttonTextNivel1}</button>
+            <button className='bg-black rounded-xl text-white p-3' type="submit" onClick={() => handleButtonClick(1)} style={{ color: buttonColorNivel1 }}>{buttonTextNivel1}</button>
           </div>
-          <div style={{ flex: '1', marginRight: '20px' }}>
+          <div className='flex-1 lg:mr-0 lg:mb-5 mr-5'>
             <h3>Nivel 2</h3>
             <input type="file" style={{ marginBottom: '5px' }} />
-            <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(2)} style={{ color: buttonColorNivel2 }}>{buttonTextNivel2}</button>
+            <button className='bg-black rounded-xl text-white p-3' type="submit" onClick={() => handleButtonClick(2)} style={{ color: buttonColorNivel2 }}>{buttonTextNivel2}</button>
           </div>
-          <div style={{ flex: '1' }}>
+          <div className='flex-1 lg:mr-0 lg:mb-5 mr-5'>
             <h3>Nivel 3</h3>
             <input type="file" style={{ marginBottom: '5px' }} />
-            <button className='bg-black rounded-xl text-white py-2' type="submit" onClick={() => handleButtonClick(3)} style={{ color: buttonColorNivel3 }}>{buttonTextNivel3}</button>
+            <button className='bg-black rounded-xl text-white p-3' type="submit" onClick={() => handleButtonClick(3)} style={{ color: buttonColorNivel3 }}>{buttonTextNivel3}</button>
           </div>
         </div>
         {message && <p>{message}</p>} {/* Mostrar mensaje si está definido */}
