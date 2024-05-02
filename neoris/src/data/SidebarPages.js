@@ -15,12 +15,12 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'Inicio',
+        name: 'Home',
         icon: <HomeIcon />,
         adminOnly: false,
       },
       {
-        name: 'Juego',
+        name: 'Game',
         icon: <VideogameAssetIcon />,
         adminOnly: false,
       },
@@ -30,12 +30,12 @@ export const links = [
         adminOnly: false,
       },
       {
-        name: 'Manejar cursos',
+        name: 'Manage Courses',
         icon: <SchoolIcon />,
         adminOnly: true,
       },
       {
-        name: 'Reseñas de usuarios',
+        name: 'User Reviews',
         icon: <ReviewsIcon />,
         adminOnly: true,
       },
@@ -46,12 +46,12 @@ export const links = [
     title: 'Otros',
     links: [
       {
-        name: 'Configuraciones',
+        name: 'Settings',
         icon: <SettingsIcon />,
         adminOnly: false,
       },
       {
-        name: 'Ayuda',
+        name: 'Help',
         icon: <HelpIcon />,
         adminOnly: false,
       },
