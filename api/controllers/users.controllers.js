@@ -2,7 +2,7 @@ import { supabase } from "../database/db.js";
 import jwt from 'jsonwebtoken';
 
 
-let unity_user_id = "f76271b9-5d8f-48fb-aa73-90cb5d33fb3f";
+let unity_user_id;
 
 
 // Register a new user
@@ -83,18 +83,22 @@ export const getIdFromToken = async (req, res) => {
   try {
 
     const decoded = jwt.decode(req.params.token);
-    
-    res.status(200).json({ "id": decoded.sub });
     unity_user_id = decoded.sub
 
-    console.log(unity_user_id);
+    console.log({"id_from_token": unity_user_id});
+
+    res.status(200).json({ "id": decoded.sub });
+
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-export const getUserId = async(req,res)=>{
-    console.log(unity_user_id)
+export const getUserId = async(req, res)=>{
 
-    res.json({"id": unity_user_id})
+    console.log(unity_user_id);
+
+    res.status(200).json({ "id": unity_user_id});
+
 };

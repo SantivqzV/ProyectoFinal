@@ -54,7 +54,7 @@ const Game = () => {
       <div className='inline-block'>
         <iframe
           title="Neoris Quest"
-          src="https://itch.io/embed-upload/10322870?color=333333"
+          src="https://itch.io/embed-upload/10323431?color=333333"
           allowFullScreen
           width="975"
           height="670"
