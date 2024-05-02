@@ -86,6 +86,8 @@ export const getIdFromToken = async (req, res) => {
     
     res.status(200).json({ "id": decoded.sub });
     unity_user_id = decoded.sub
+
+    console.log(unity_user_id);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
