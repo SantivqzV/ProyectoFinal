@@ -49,9 +49,9 @@ const Game = () => {
 
   return (
     <div className="h-full w-full overflow-auto font-sans text-base p-5">
-      <Header title="Juego" subtitle="Neoris Quest" />
+      <Header title="Neoris Quest" subtitle="Juega Ahora!" />
       <h1 className='font-bold text-4xl my-5'></h1>
-      <div className='inline-block'>
+      <div className='flex items-center justify-center w-full h-full'>
         <iframe
           title="Neoris Quest"
           src="https://itch.io/embed-upload/10323431?color=333333"
@@ -59,15 +59,14 @@ const Game = () => {
           width="975"
           height="670"
           frameBorder="1"
-          className='block w-full h-auto'
-        >
-        </iframe>
+          className='block'
+        />
       </div>
 
       
-      <div className='mt-20 text-left border border-gray-300 rounded p-5 shadow-md max-w-6xl mx-auto'>
+      <div className='mt-20 text-left border border-gray-300 rounded p-5 shadow-md mx-auto' style={{ maxWidth: '975px' }}>
         <h2 className='mb-5 font-bold'>Subir Certificaciones</h2>
-        <div className='flex lg:flex-col justify-between'>
+        <div className='flex flex-col justify-between'>
           <div className='flex-1 lg:mr-0 lg:mb-5 mr-5'>
             <h3>Nivel 1</h3>
             <input type="file" style={{ marginBottom: '5px' }} />
