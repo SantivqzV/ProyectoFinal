@@ -7,8 +7,8 @@ import { Tooltip } from '@mui/material';
 
 import {links} from "../data/SidebarPages"
 import { useStateContext } from '../contexts/ContextProvider';
-
-
+import icon from '../data/neorisIcon.png'; // replace 'path-to-your-image.png' with the actual path to your image
+import logo from '../data/neorisLogo.png';
 
 const Sidebar = ({isAdmin}) => {
   const {activeMenu, setActiveMenu, screenSize} = useStateContext();
@@ -30,7 +30,8 @@ const Sidebar = ({isAdmin}) => {
           <div className='flex justify-between items-center'>
             <Link to="/" onClick={handleCloseSideBar}
             className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900'>
-              <SiShopware/> <span>Neoris</span>
+              <img src={icon} alt="Logo" style={{width: '30px', height: '30px'}} />
+              <img src={logo} alt="Second Logo" style={{width: '80px', height: '20px'}} /> 
             </Link>
             <Tooltip title="Menu">
               <button type='button'

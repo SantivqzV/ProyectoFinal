@@ -72,7 +72,7 @@ function Navbar({firstName, lastName, email, position}) {
           >
             <img className="rounded-full w-8 h-8" src={avatar} />
             <p>
-              <span className='text-gray-400 text-14'>Hi, </span> {' '}
+              <span className='text-gray-400 text-14'>Hola, </span> {' '}
               <span className='text-gray-400 ml-1 text-14'>{firstName}</span>
             </p>
             <MdKeyboardArrowDown className='text-gray-400 text-14' />

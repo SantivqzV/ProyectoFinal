@@ -43,7 +43,7 @@ export const links = [
   },
 
   {
-    title: 'Others',
+    title: 'Otros',
     links: [
       {
         name: 'Settings',

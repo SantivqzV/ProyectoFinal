@@ -38,12 +38,12 @@ const Game = () => {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <Header title="Game" subtitle="Neoris Quest" />
+      <Header title="Juego" subtitle="Neoris Quest" />
       <h1 style={{ fontWeight: 'bold', fontSize: '2.5em', margin: '20px 0' }}></h1>
       <div style={{ display: 'inline-block' }}>
         <iframe
           title="Neoris Quest"
-          src="https://itch.io/embed-upload/10307091?color=333333"
+          src="https://itch.io/embed-upload/10322870?color=333333"
           allowFullScreen
           width="975"
           height="670"
@@ -54,7 +54,7 @@ const Game = () => {
       </div>
 
       
-      <div style={{ marginTop: '80px', textAlign: 'left', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '1300px', margin: '0 auto' }}>
+      <div style={{ marginTop: '80px', textAlign: 'left', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', maxWidth: '1500px', margin: '0 auto' }}>
         <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Subir Certificaciones</h2>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div style={{ flex: '1', marginRight: '20px' }}>
