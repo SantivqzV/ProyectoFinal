@@ -83,11 +83,13 @@ export const getIdFromToken = async (req, res) => {
   try {
 
     const decoded = jwt.decode(req.params.token);
-    
-    res.status(200).json({ "id": decoded.sub });
     unity_user_id = decoded.sub
 
-    console.log({"id": unity_user_id});
+    console.log({"id_from_token": unity_user_id});
+
+    res.status(200).json({ "id": decoded.sub });
+
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
