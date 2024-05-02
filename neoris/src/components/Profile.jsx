@@ -7,9 +7,16 @@ import { useStateContext } from '../contexts/ContextProvider';
 import avatar from '../data/avatar.jpg';
 
 import { logout } from '../auth';
+import Cookies from 'js-cookie';
 
 const Profile = ({firstName, lastName, email, position}) => {
   const {isClicked, initialState, setIsAuth} = useStateContext();
+
+  const handleLogout = async () => {
+    await logout();
+    setIsAuth(false);
+    Cookies.remove('token');
+  }
 
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
@@ -57,7 +64,7 @@ const Profile = ({firstName, lastName, email, position}) => {
         <button 
           style={{ backgroundColor: "white", color:"black", borderRadius:"10px"}} 
           className={`p-3 w-full hover:drop-shadow-xl`}
-          onClick={logout}
+          onClick={handleLogout}
         >
           Logout
         </button>

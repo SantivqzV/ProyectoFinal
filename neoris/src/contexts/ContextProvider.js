@@ -57,7 +57,7 @@ export const ContextProvider = ({children}) => {
           }
         };
         
-        if(isAdmin && isAuth){
+        if(isAdmin){
             console.log("hola")
             fetchData();
         }

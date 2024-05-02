@@ -32,8 +32,6 @@ export async function logout() {
 
     console.log(response.data);
 
-    Cookies.remove('token');
-
     console.log('Logout Successful');
 
     //Refresh
