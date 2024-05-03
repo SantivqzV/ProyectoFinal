@@ -41,7 +41,7 @@ export const getLeaderboard = async () => {
 
 export const getUserDashboard = async (token) => {
   try{
-    const response = await axios.get(`https://proyecto-final-server.vercel.app/${token}`);
+    const response = await axios.get(`https://proyecto-final-server.vercel.app/userDashboard/${token}`);
     const data = response.data;
     console.log(data);
     return data;
@@ -53,7 +53,7 @@ export const getUserDashboard = async (token) => {
 
 export const sendId = async (token) => {
   try {
-    const response = await axios.post(`https://proyecto-final-server.vercel.app/${token}`)
+    const response = await axios.post(`https://proyecto-final-server.vercel.app/getIdFromToken/${token}`)
     const data = response.data;
     console.log(data);
     return data;
