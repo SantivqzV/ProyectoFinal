@@ -8,6 +8,7 @@ let unity_user_id;
 // Register a new user
 export const register = async (req, res) => {
 try{
+  console.log(req.body);
     
     const { data, error } = await supabase.auth.signUp(
       {
@@ -15,14 +16,14 @@ try{
         password: req.body.password,
         options: {
           data: {
-            nombre: req.body.options.data.nombre,
-            is_admin: req.body.options.data.is_admin,
-            apellido1: req.body.options.data.apellido1,
-            apellido2: req.body.options.data.apellido2,
-            puesto: req.body.options.data.puesto,
-            pais: req.body.options.data.pais,
-            ciudad: req.body.options.data.ciudad,
-            nombre_departamento: req.body.options.data.nombre_departamento,
+            nombre: req.body.nombre,
+            is_admin: req.body.is_admin,
+            apellido1: req.body.apellido1,
+            apellido2: req.body.apellido2,
+            puesto: req.body.puesto,
+            pais: req.body.pais,
+            ciudad: req.body.ciudad,
+            nombre_departamento: req.body.nombre_departamento,
           }
         }
       }

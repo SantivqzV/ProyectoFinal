@@ -6,11 +6,9 @@ const UserStatCards = ({data}) => {
   console.log(data);
 
   const cursosCompletados = data.cursosCompletados;
-  const cursosProgreso = data.cursoEnProgreso[0].nombre_curso;
-  const puntosTotales = data.puntosTotales[0].puntaje;
+  const cursosProgreso = cursosCompletados ? data.cursoEnProgreso[0].nombre_curso : "N/A";
+  const puntosTotales = cursosCompletados ? data.puntosTotales[0].puntaje : "0";
 
-
-  
   return (
     <Card className="w-full h-full grid grid-cols-2 grid-rows-2 gap-6 p-6 justify-center items-center">  
       {/* Top Row */}

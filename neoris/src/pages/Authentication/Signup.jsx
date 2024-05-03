@@ -37,8 +37,6 @@ const Signup = () => {
     }
   }
 
-
-
   return(
     <section className='min-h-screen flex items-center justify-center' style={{
       background: 'url(./Background.gif) no-repeat center center fixed',
