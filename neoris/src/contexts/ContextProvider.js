@@ -51,14 +51,12 @@ export const ContextProvider = ({children}) => {
             const DashboardData = await getAdminDashboard(filter);
             setData(DashboardData);
             setLoading(false);
-            console.log(DashboardData);
           } catch (error) {
             console.error(error);
           }
         };
         
         if(isAdmin){
-            console.log("hola")
             fetchData();
         }
       }, [filter, isAuth]);
@@ -72,7 +70,6 @@ export const ContextProvider = ({children}) => {
                 const DashboardData = await getUserDashboard(Cookie);
                 setData(DashboardData);
                 setLoading(false);
-                console.log(DashboardData);
             } catch (error) {
                 console.error(error);
             }

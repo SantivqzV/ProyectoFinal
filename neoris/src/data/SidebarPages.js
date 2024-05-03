@@ -29,16 +29,7 @@ export const links = [
         icon: <LeaderboardIcon />,
         adminOnly: false,
       },
-      {
-        name: 'Manage Courses',
-        icon: <SchoolIcon />,
-        adminOnly: true,
-      },
-      {
-        name: 'User Reviews',
-        icon: <ReviewsIcon />,
-        adminOnly: true,
-      },
+      
     ],
   },
 

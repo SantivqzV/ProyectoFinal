@@ -1,5 +1,5 @@
 // DashboardLayout.js
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomeAdmin, HomeUser, Game, Leaderboard, Settings, Accounts, Help } from '.';
 
@@ -17,6 +17,16 @@ const Dashboard = ({ isAdmin, activeMenu }) => {
   const email = infoUsuario.email;
   const position = infoUsuario.user_metadata.puesto;
   const country = infoUsuario.user_metadata.pais;
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    const timer = setTimeout(() => setLoading(false), 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
   
   return (
     <div className='flex'>
