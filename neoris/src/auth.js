@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 export async function login(email, password) {
   try {
-    const response = await axios.post('http://localhost:5001/login', {
+    const response = await axios.post('https://proyecto-final-server.vercel.app/login', {
       email,
       password
     });
@@ -27,7 +27,7 @@ export async function login(email, password) {
 export async function SignUp(email, password, nombre, apellido1, apellido2, puesto, pais, ciudad, nombre_departamento) {
   const is_admin = 0;
   try {
-    const response = await axios.post('http://localhost:5001/register', {
+    const response = await axios.post('https://proyecto-final-server.vercel.app/register', {
       email,
       password, 
       nombre,
@@ -50,7 +50,7 @@ export async function SignUp(email, password, nombre, apellido1, apellido2, pues
 
 export async function logout() {
   try {
-    const response = await axios.post('http://localhost:5001/logout', {
+    const response = await axios.post('https://proyecto-final-server.vercel.app/logout', {
       token: Cookies.get('token')
     });
 

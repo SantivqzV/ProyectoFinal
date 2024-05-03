@@ -5,7 +5,7 @@ import {jwtDecode} from 'jwt-decode';
 
 export const getCursos = async () => {
   try {
-    const response = await axios.get("http://localhost:5001/cursos");
+    const response = await axios.get("https://proyecto-final-server.vercel.app/cursos");
     const data = response.data;
     console.log(data);
     return data;
@@ -17,7 +17,7 @@ export const getCursos = async () => {
 
 export const getAdminDashboard = async (pais) => {
   try {
-    const response = await axios.get(`http://localhost:5001/adminDashboard/${pais}`);
+    const response = await axios.get(`https://proyecto-final-server.vercel.app/${pais}`);
     const data = response.data;
     console.log(data);
     return data;
@@ -29,7 +29,7 @@ export const getAdminDashboard = async (pais) => {
 
 export const getLeaderboard = async () => {
   try{
-    const response = await axios.get(`http://localhost:5001/getLeaderboard/`);
+    const response = await axios.get(`https://proyecto-final-server.vercel.app/getLeaderboard/`);
     const data = response.data;
     console.log(data);
     return data;
@@ -41,7 +41,7 @@ export const getLeaderboard = async () => {
 
 export const getUserDashboard = async (token) => {
   try{
-    const response = await axios.get(`http://localhost:5001/userDashboard/${token}`);
+    const response = await axios.get(`https://proyecto-final-server.vercel.app/${token}`);
     const data = response.data;
     console.log(data);
     return data;
@@ -53,7 +53,7 @@ export const getUserDashboard = async (token) => {
 
 export const sendId = async (token) => {
   try {
-    const response = await axios.post(`http://localhost:5001/getIdFromToken/${token}`)
+    const response = await axios.post(`https://proyecto-final-server.vercel.app/${token}`)
     const data = response.data;
     console.log(data);
     return data;
