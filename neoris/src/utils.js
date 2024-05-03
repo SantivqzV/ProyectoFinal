@@ -17,7 +17,7 @@ export const getCursos = async () => {
 
 export const getAdminDashboard = async (pais) => {
   try {
-    const response = await axios.get(`https://proyecto-final-server.vercel.app/${pais}`);
+    const response = await axios.get(`https://proyecto-final-server.vercel.app/adminDashboard/${pais}`);
     const data = response.data;
     console.log(data);
     return data;
