@@ -4,11 +4,8 @@ import React from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HelpIcon from '@mui/icons-material/Help';
 import SettingsIcon from '@mui/icons-material/Settings';
-import SchoolIcon from '@mui/icons-material/School';
-import ReviewsIcon from '@mui/icons-material/Reviews';
 
 export const links = [
   {

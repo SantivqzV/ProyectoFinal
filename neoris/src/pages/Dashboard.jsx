@@ -12,6 +12,8 @@ import { decodeToken } from '../utils';
 const Dashboard = ({ isAdmin, activeMenu }) => {
   const infoUsuario = decodeToken();
 
+  console.log(infoUsuario);
+
   const firstName = infoUsuario.user_metadata.nombre;
   const lastName = infoUsuario.user_metadata.apellido1;
   const email = infoUsuario.email;
